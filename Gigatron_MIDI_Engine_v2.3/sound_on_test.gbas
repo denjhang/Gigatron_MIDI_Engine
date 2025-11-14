@@ -1,0 +1,431 @@
+_runtimePath_ "../runtime"
+_codeRomType_ ROMv5a
+_enable8BitAudioEmu_ ON 'experimental
+
+'本程序实现了基于查找表和sound on的声音合成引擎，尤其对查找表音高进行了精确调音。
+'因此Gigatron目前是：
+'1.4通道的复古波合成器，带有6/8 bit DAC音频输出
+'2.支持4种内置波形，0噪音，1三角波，2方波，3锯齿波，每个通道可以自由使用这4个波形。
+'3.支持自定义波形，通过改变oscH和oscL寄存器实现自定义
+'4.低音质短PCM回放，实现方法参考at67的musicdemo
+'5.音高范围C0到A7，跨越近8个八度
+'6.软件定义音量，范围是0到63
+
+
+'audio fix for ROMv5a
+poke &h21, peek(&h21) OR 3
+sound off
+cls
+'初始化
+
+print "sound on and midi_note test by denjhang"
+
+def index, fix_num ,oct, button, keystat, demo
+keystat=0
+oct=4
+key_index=0
+demo=1
+
+repeat
+'主循环
+wait
+gosub handleInput
+	
+'gprintf "loop index=%d"	,index+1
+print index
+
+call eatSound
+
+call demo_key
+
+&forever
+
+
+
+
+dim enotes%(7) = 61, 63, 65, 66, 68, 70, 72, '定义音符数组 C5 D5 E5 F5 G5 A5 B5
+
+proc eatSound
+
+    local n	
+	
+
+	'cls
+	call fix
+    n = get("MUSIC_NOTE", peek(@enotes + index)+12*(oct-5))+fix_num
+    sound on, 2, n, 63, 1  ' 通道 2，频率-查表得出，音量-最大，波形1-三角波
+    set SOUND_TIMER, 1000
+	
+'	inc index ' 索引自增1，大于等于4就清零	
+	
+'	if index >= 7
+'		index = 0           
+'    endif
+	
+	index=key_index
+endproc
+
+proc fix
+
+	if oct==0 
+		call fix_oct0 
+	endif
+	
+	if oct==1 
+		call fix_oct1 
+	endif
+	
+	if oct==2 
+		call fix_oct2 
+	endif
+	
+	if oct==3 
+		call fix_oct3 
+	endif
+
+	if oct==4 
+		call fix_oct4 
+	endif
+
+	if oct==5 
+		call fix_oct5 
+	endif
+	
+	if oct==6 
+		call fix_oct6 
+	endif
+
+	if oct==7 
+		call fix_oct6 
+	endif	
+
+endproc
+
+proc fix_oct0
+if (keystat==0 AND demo ==1)
+	if index == 0
+		fix_num=67           
+    endif
+	if index == 1
+		fix_num=74           
+    endif	
+	if index == 2
+		fix_num=86           
+    endif	
+	if index == 3
+		fix_num=86           
+    endif	
+	
+	if index == 4
+		fix_num=104           
+    endif		
+
+	if index == 5
+		fix_num=0           
+    endif
+
+	if index == 6
+		fix_num=3           
+    endif	
+endif	
+endproc
+	
+proc fix_oct1
+if (keystat==0 AND demo ==1)
+	if index == 0
+		fix_num=13           
+    endif
+	if index == 1
+		fix_num=34           
+    endif	
+	if index == 2
+		fix_num=44           
+    endif	
+	if index == 3
+		fix_num=63           
+    endif	
+	
+	if index == 4
+		fix_num=79           
+    endif		
+
+	if index == 5
+		fix_num=103           
+    endif
+
+	if index == 6
+		fix_num=5           
+    endif	
+endif	
+endproc	
+	
+proc fix_oct2
+if (keystat==0 AND demo ==1)
+	if index == 0
+		fix_num=16           
+    endif
+	if index == 1
+		fix_num=58           
+    endif	
+	if index == 2
+		fix_num=91           
+    endif	
+	if index == 3
+		fix_num=115           
+    endif	
+	
+	if index == 4
+		fix_num=38           
+    endif		
+
+	if index == 5
+		fix_num=87           
+    endif
+
+	if index == 6
+		fix_num=2           
+    endif	
+endif	
+endproc	
+	
+proc fix_oct3
+if (keystat==0 AND demo ==1)
+	if index == 0
+		fix_num=43           
+    endif
+	if index == 1
+		fix_num=102           
+    endif	
+	if index == 2
+		fix_num=56           
+    endif	
+	if index == 3
+		fix_num=95           
+    endif	
+	
+	if index == 4
+		fix_num=54           
+    endif		
+
+	if index == 5
+		fix_num=27           
+    endif
+
+	if index == 6
+		fix_num=20           
+    endif	
+endif	
+	
+endproc
+
+proc fix_oct4
+
+if (keystat==0 AND demo ==1)   
+	if index == 0
+		fix_num=88           
+    endif
+	if index == 1
+		fix_num=88           
+    endif	
+	if index == 2
+		fix_num=91           
+    endif	
+	if index == 3
+		fix_num=62           
+    endif	
+	
+	if index == 4
+		fix_num=113           
+    endif		
+
+	if index == 5
+		fix_num=56           
+    endif
+
+	if index == 6
+		fix_num=42           
+    endif	
+			
+	
+endif	
+
+endproc
+
+proc fix_oct5
+
+if (keystat==0 AND demo ==1)   
+	if index == 0
+		fix_num=23           
+    endif
+	if index == 1
+		fix_num=51           
+    endif	
+	if index == 2
+		fix_num=91           
+    endif	
+	if index == 3
+		fix_num=120           
+    endif	
+	
+	if index == 4
+		fix_num=103           
+    endif		
+
+	if index == 5
+		fix_num=136           
+    endif
+
+	if index == 6
+		fix_num=65           
+    endif	
+			
+	
+endif	
+
+endproc
+
+proc fix_oct6
+
+if (keystat==0 AND demo ==1)   
+	if index == 0
+		fix_num=88           
+    endif
+	if index == 1
+		fix_num=88           
+    endif	
+	if index == 2
+		fix_num=91           
+    endif	
+	if index == 3
+		fix_num=62           
+    endif	
+	
+	if index == 4
+		fix_num=113           
+    endif		
+
+	if index == 5
+		fix_num=56           
+    endif
+
+	if index == 6
+		fix_num=42           
+    endif	
+			
+	
+endif	
+
+endproc
+
+
+proc fix_oct7
+
+if (keystat==0 AND demo ==1)   
+	if index == 0
+		fix_num=88           
+    endif
+	if index == 1
+		fix_num=88           
+    endif	
+	if index == 2
+		fix_num=91           
+    endif	
+	if index == 3
+		fix_num=62           
+    endif	
+	
+	if index == 4
+		fix_num=113           
+    endif		
+
+	if index == 5
+		fix_num=56           
+    endif
+
+	if index == 6
+		fix_num=42           
+    endif	
+			
+	
+endif	
+
+endproc
+
+
+handleInput:
+
+button = get("BUTTON_STATE") XOR 255
+'print button
+'print fix_num
+gprintf "fix_num=%d,oct=%d,demo=%d"	,fix_num,oct,demo
+'gprintf "button=%d"	,button
+
+    if (button AND &h08) ' Up (8)
+	keystat=1
+	fix_num=fix_num+1
+    endif
+	
+    if (button AND &h04) ' Down (4)
+	keystat=1
+	fix_num=fix_num-1
+    endif
+
+    if (button AND &h02) ' Left (2)
+	if key_index>=0 
+		key_index=key_index-1
+		if key_index==-1
+			key_index=6
+			if oct>0 then oct=oct-1
+		endif	
+	endif
+	keystat=0
+    endif
+	
+    if (button AND &h01) ' Right (1)
+	if key_index<=6 
+		key_index=key_index+1
+		if key_index==7
+			key_index=0
+			if oct<7 then oct=oct+1
+		endif	
+	endif
+	keystat=0
+    endif
+
+    if (button AND &h00) ' 没按键
+	
+    endif	
+	
+	if (button AND &h80) ' A button
+	if oct<7 then oct=oct+1
+
+	keystat=0
+	endif
+	
+	if (button AND &h40) ' B button
+	if oct>0 then oct=oct-1
+
+	keystat=0
+	endif
+
+	
+	
+return
+
+proc demo_key
+	if (button AND &h10) ' START button
+	
+		if demo==0
+			demo = 1	
+			return
+		endif
+		
+		if demo==1 
+		   demo = 0
+		   return
+		   endif
+		   
+	endif
+endproc
+
+

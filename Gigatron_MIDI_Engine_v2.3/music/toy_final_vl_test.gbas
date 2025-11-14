@@ -1,0 +1,1715 @@
+_runtimePath_ "../runtime"
+_runtimeStart_ &hFFFF
+_codeRomType_ ROMv5a
+_enable8BitAudioEmu_ ON 'experimental
+
+'本程序实现了基于查找表和sound on的声音合成引擎，尤其对查找表音高进行了精确调音。
+'因此Gigatron目前是：
+'1.4通道的复古波合成器，带有6/8 bit DAC音频输出
+'2.支持4种内置波形，0噪音，1三角波，2方波，3锯齿波，每个通道可以自由使用这4个波形。
+'3.支持自定义波形，通过改变oscH和oscL寄存器实现自定义
+'4.低音质短PCM回放，实现方法参考at67的musicdemo
+'5.音高范围C0到A7，跨越近8个八度
+'6.软件定义音量，范围是0到63
+
+
+'audio fix for ROMv5a
+poke &h21, peek(&h21) OR 3
+sound off
+cls
+print "sound on and midi_note test by denjhang"
+'初始化
+
+
+
+def index, fix_num ,oct, button, keystat, demo, old_timer, tick_note_ext
+wave=1
+vol=63
+index=0
+oct=5
+tick_sum=0
+
+
+
+set sound_timer,255
+old_timer=get("SOUND_TIMER") '演奏之前先同步一次
+'乐谱数据
+call music_data
+call stop_music
+
+
+
+proc fix
+
+if oct==0
+call fix_oct0
+endif
+
+if oct==1
+call fix_oct1
+endif
+
+if oct==2
+call fix_oct2
+endif
+
+if oct==3
+call fix_oct3
+endif
+
+if oct==4
+call fix_oct4
+endif
+
+if oct==5
+call fix_oct5
+endif
+
+if oct==6
+call fix_oct6
+endif
+
+if oct==7
+call fix_oct6
+endif
+
+endproc
+
+proc fix_oct0
+if index == 0	'C
+fix_num=67
+endif
+if index == 1	'C# (C和D的平均值)
+fix_num=(67+74)/2
+endif
+if index == 2	'D
+fix_num=74
+endif
+if index == 3	'D# (D和E的平均值)
+fix_num=(74+86)/2
+endif
+if index == 4	'E
+fix_num=86
+endif
+if index == 5	'F
+fix_num=86
+endif
+if index == 6	'F# (F和G的平均值)
+fix_num=(86+104)/2
+endif
+if index == 7	'G
+fix_num=104
+endif
+if index == 8	'G# (G和A的平均值)
+fix_num=(104+0)/2
+endif
+if index == 9	'A
+fix_num=0
+endif
+if index == 10	'A# (A和B的平均值)
+fix_num=(0+3)/2
+endif
+if index == 11	'B
+fix_num=3
+endif
+endproc
+
+proc fix_oct1
+if index == 0	'C
+fix_num=13
+endif
+if index == 1	'C#
+fix_num=(13+34)/2
+endif
+if index == 2	'D
+fix_num=34
+endif
+if index == 3	'D#
+fix_num=(34+44)/2
+endif
+if index == 4	'E
+fix_num=44
+endif
+if index == 5	'F
+fix_num=63
+endif
+if index == 6	'F#
+fix_num=(63+79)/2
+endif
+if index == 7	'G
+fix_num=79
+endif
+if index == 8	'G#
+fix_num=(79+103)/2
+endif
+if index == 9	'A
+fix_num=103
+endif
+if index == 10	'A#
+fix_num=(103+5)/2
+endif
+if index == 11	'B
+fix_num=5
+endif
+endproc
+
+proc fix_oct2
+if index == 0	'C
+fix_num=16
+endif
+if index == 1	'C#
+fix_num=(16+58)/2
+endif
+if index == 2	'D
+fix_num=58
+endif
+if index == 3	'D#
+fix_num=(58+91)/2
+endif
+if index == 4	'E
+fix_num=91
+endif
+if index == 5	'F
+fix_num=115
+endif
+if index == 6	'F#
+fix_num=(115+38)/2
+endif
+if index == 7	'G
+fix_num=38
+endif
+if index == 8	'G#
+fix_num=(38+87)/2
+endif
+if index == 9	'A
+fix_num=87
+endif
+if index == 10	'A#
+fix_num=(87+2)/2
+endif
+if index == 11	'B
+fix_num=2
+endif
+endproc
+
+proc fix_oct3
+if index == 0	'C
+fix_num=43
+endif
+if index == 1	'C#
+fix_num=(43+102)/2
+endif
+if index == 2	'D
+fix_num=102
+endif
+if index == 3	'D#
+fix_num=(102+56)/2
+endif
+if index == 4	'E
+fix_num=56
+endif
+if index == 5	'F
+fix_num=95
+endif
+if index == 6	'F#
+fix_num=(95+54)/2
+endif
+if index == 7	'G
+fix_num=54
+endif
+if index == 8	'G#
+fix_num=(54+27)/2
+endif
+if index == 9	'A
+fix_num=27
+endif
+if index == 10	'A#
+fix_num=(27+20)/2
+endif
+if index == 11	'B
+fix_num=20
+endif
+
+endproc
+
+proc fix_oct4
+if index == 0	'C
+fix_num=88
+endif
+if index == 1	'C#
+fix_num=(88+88)/2
+endif
+if index == 2	'D
+fix_num=88
+endif
+if index == 3	'D#
+fix_num=(88+91)/2
+endif
+if index == 4	'E
+fix_num=91
+endif
+if index == 5	'F
+fix_num=62
+endif
+if index == 6	'F#
+fix_num=(62+113)/2
+endif
+if index == 7	'G
+fix_num=113
+endif
+if index == 8	'G#
+fix_num=(113+56)/2
+endif
+if index == 9	'A
+fix_num=56
+endif
+if index == 10	'A#
+fix_num=(56+42)/2
+endif
+if index == 11	'B
+fix_num=42
+endif
+endproc
+
+proc fix_oct5
+if index == 0	'C
+fix_num=23
+endif
+if index == 1	'C#
+fix_num=(23+51)/2
+endif
+if index == 2	'D
+fix_num=51
+endif
+if index == 3	'D#
+fix_num=(51+91)/2
+endif
+if index == 4	'E
+fix_num=91
+endif
+if index == 5	'F
+fix_num=120
+endif
+if index == 6	'F#
+fix_num=(120+103)/2
+endif
+if index == 7	'G
+fix_num=103
+endif
+if index == 8	'G#
+fix_num=(103+136)/2
+endif
+if index == 9	'A
+fix_num=136
+endif
+if index == 10	'A#
+fix_num=(136+65)/2
+endif
+if index == 11	'B
+fix_num=65
+endif
+endproc
+
+proc fix_oct6
+if index == 0	'C
+fix_num=88
+endif
+if index == 1	'C#
+fix_num=(88+88)/2
+endif
+if index == 2	'D
+fix_num=88
+endif
+if index == 3	'D#
+fix_num=(88+91)/2
+endif
+if index == 4	'E
+fix_num=91
+endif
+if index == 5	'F
+fix_num=62
+endif
+if index == 6	'F#
+fix_num=(62+113)/2
+endif
+if index == 7	'G
+fix_num=113
+endif
+if index == 8	'G#
+fix_num=(113+56)/2
+endif
+if index == 9	'A
+fix_num=56
+endif
+if index == 10	'A#
+fix_num=(56+42)/2
+endif
+if index == 11	'B
+fix_num=42
+endif
+endproc
+
+
+proc fix_oct7
+if index == 0	'C
+fix_num=88
+endif
+if index == 1	'C#
+fix_num=(88+88)/2
+endif
+if index == 2	'D
+fix_num=88
+endif
+if index == 3	'D#
+fix_num=(88+91)/2
+endif
+if index == 4	'E
+fix_num=91
+endif
+if index == 5	'F
+fix_num=62
+endif
+if index == 6	'F#
+fix_num=(62+113)/2
+endif
+if index == 7	'G
+fix_num=113
+endif
+if index == 8	'G#
+fix_num=(113+56)/2
+endif
+if index == 9	'A
+fix_num=56
+endif
+if index == 10	'A#
+fix_num=(56+42)/2
+endif
+if index == 11	'B
+fix_num=42
+endif
+endproc
+
+proc stop_music
+repeat
+sound off
+wait
+
+&forever
+endproc
+
+dim enotes%(12) = 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
+'定义音符数组 	  C5  C5# D5  D5# E5   F  F#  G5  G5# A5  A5# B5
+
+proc eatSound_Timer,tick_note
+
+set SOUND_TIMER, 1
+wait_0:
+if 	get("SOUND_TIMER") > 0
+goto wait_0 '定时器不变化时，重新判断，此时cpu空闲
+endif
+tick_sum=tick_sum+1 				'定时器变化时，总tick加1
+gprintf "TIMER=%d,tick=%d",get("SOUND_TIMER"),tick_sum
+if tick_sum==tick_note  		'马上进行对比，如果tick等于总tick，则播放声音
+tick_note_ext=tick_note		'只赋值，然后回到乐谱程序播放4个通道的音符
+ 
+else							'如果tick不等于总tick，则重新判断，此时cpu空闲
+set SOUND_TIMER, 1
+goto wait_0
+endif
+
+endproc
+
+proc beep,ch,note,vol,wave,Pitch_Bend
+  
+ 'MIDI note到本引擎的oct和index换算，已经验算
+ oct=note/12-1
+ index=note-12*(oct+1)
+ 
+    local n
+ call fix
+    n = get("MUSIC_NOTE", peek(@enotes + index)+12*(oct-5))+fix_num+Pitch_Bend
+ '查表和修正音高
+ 
+    sound on, ch, n, vol, wave  ' 通道 2，频率-查表得出，音量-最大，波形1-三角波
+ set SOUND_TIMER, 1 			'播放完成之后定时器重置，
+ 
+ gprintf "TIMER=%d,tick=%d,beep,%d,%d,%d,%d,%d,sound_frq=%d,pitch=%d"	,get("SOUND_TIMER"),tick_sum,ch,note,vol,wave,tick_note_ext,n,Pitch_Bend
+ 
+endproc
+
+
+
+proc music_data '先定时，再演奏，一次性演奏4个通道
+	call eatSound_Timer,1
+
+	call beep,1,83,40,1,0
+	sound off,2
+	call beep,3,55,40,3,0
+	call eatSound_Timer,4
+
+	sound off,3
+	call eatSound_Timer,7
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,8
+
+	sound off,2
+	call eatSound_Timer,11
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,12
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,13
+
+	sound off,2
+	call eatSound_Timer,14
+
+	sound off,2
+	call eatSound_Timer,15
+
+	sound off,2
+	call eatSound_Timer,16
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,17
+
+	sound off,2
+	call eatSound_Timer,19
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,20
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call eatSound_Timer,23
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,24
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,28
+
+	sound off,3
+	call eatSound_Timer,31
+
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,32
+
+	sound off,2
+	call eatSound_Timer,35
+
+	call beep,2,70,56,0,0
+	call beep,4,86,40,1,0
+	call eatSound_Timer,36
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,37
+
+	sound off,2
+	call eatSound_Timer,38
+
+	sound off,2
+	call eatSound_Timer,39
+
+	sound off,2
+	call eatSound_Timer,40
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,41
+
+	sound off,2
+	call eatSound_Timer,43
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,44
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,47
+
+	call beep,1,82,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,48
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,52
+
+	sound off,3
+	call eatSound_Timer,55
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,56
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,59
+
+	call beep,1,86,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,60
+
+	sound off,2
+	call beep,3,63,56,3,0
+	call eatSound_Timer,61
+
+	sound off,2
+	call eatSound_Timer,62
+
+	sound off,2
+	call eatSound_Timer,63
+
+	sound off,2
+	call eatSound_Timer,64
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,65
+
+	sound off,2
+	call eatSound_Timer,67
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,68
+
+	sound off,2
+	call eatSound_Timer,71
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,72
+
+	sound off,2
+	call beep,3,66,56,3,0
+	call eatSound_Timer,76
+
+	sound off,3
+	call eatSound_Timer,79
+
+	call beep,1,83,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,80
+
+	sound off,2
+	call eatSound_Timer,83
+
+	call beep,1,86,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,84
+
+	sound off,2
+	call beep,3,63,56,3,0
+	call eatSound_Timer,85
+
+	sound off,2
+	call eatSound_Timer,86
+
+	sound off,2
+	call eatSound_Timer,87
+
+	sound off,2
+	call eatSound_Timer,88
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,89
+
+	sound off,2
+	call eatSound_Timer,91
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,92
+
+	sound off,2
+	call eatSound_Timer,95
+
+	call beep,1,87,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,96
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,97
+
+	call beep,1,88,40,1,0
+	call eatSound_Timer,100
+
+	sound off,3
+	call eatSound_Timer,103
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,104
+
+	sound off,2
+	call eatSound_Timer,107
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,108
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,109
+
+	sound off,2
+	call eatSound_Timer,110
+
+	sound off,2
+	call eatSound_Timer,111
+
+	sound off,2
+	call eatSound_Timer,112
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,113
+
+	sound off,2
+	call eatSound_Timer,115
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,116
+
+	sound off,2
+	call eatSound_Timer,119
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,120
+
+	sound off,2
+	call beep,3,55,56,3,0
+	call eatSound_Timer,124
+
+	sound off,3
+	call eatSound_Timer,127
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,128
+
+	sound off,2
+	call eatSound_Timer,131
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,132
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,133
+
+	sound off,2
+	call eatSound_Timer,134
+
+	sound off,2
+	call eatSound_Timer,135
+
+	sound off,2
+	call eatSound_Timer,136
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,137
+
+	sound off,2
+	call eatSound_Timer,139
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,140
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call beep,3,60,56,3,0
+	call eatSound_Timer,143
+
+	call beep,1,81,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,144
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,151
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,152
+
+	sound off,2
+	call beep,3,60,56,3,0
+	call eatSound_Timer,155
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,156
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,157
+
+	sound off,2
+	call eatSound_Timer,158
+
+	sound off,2
+	call eatSound_Timer,159
+
+	sound off,2
+	call eatSound_Timer,160
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,161
+
+	sound off,2
+	call eatSound_Timer,163
+
+	call beep,1,79,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,164
+
+	sound off,2
+	call eatSound_Timer,167
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,168
+
+	sound off,2
+	call beep,3,67,56,3,0
+	call eatSound_Timer,172
+
+	sound off,3
+	call eatSound_Timer,175
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,176
+
+	sound off,2
+	call eatSound_Timer,179
+
+	call beep,1,76,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,180
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,181
+
+	sound off,2
+	call eatSound_Timer,182
+
+	sound off,2
+	call eatSound_Timer,183
+
+	sound off,2
+	call eatSound_Timer,184
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,185
+
+	sound off,2
+	call eatSound_Timer,187
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,188
+
+	sound off,2
+	call eatSound_Timer,191
+
+	call beep,1,82,40,1,0
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,192
+
+	sound off,2
+	call beep,3,67,40,3,0
+	call eatSound_Timer,193
+
+	call beep,1,83,40,1,0
+	call eatSound_Timer,196
+
+	sound off,3
+	call eatSound_Timer,199
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,200
+
+	sound off,2
+	call beep,3,71,56,3,0
+	call eatSound_Timer,203
+
+	call beep,1,81,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,204
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,205
+
+	sound off,2
+	call eatSound_Timer,206
+
+	sound off,2
+	call eatSound_Timer,207
+
+	sound off,2
+	call eatSound_Timer,208
+
+	sound off,2
+	call eatSound_Timer,209
+
+	sound off,2
+	call eatSound_Timer,211
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,212
+
+	sound off,2
+	call beep,3,62,40,3,0
+	call eatSound_Timer,215
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,216
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,223
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,224
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,227
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,228
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,229
+
+	sound off,2
+	call eatSound_Timer,230
+
+	sound off,2
+	call eatSound_Timer,231
+
+	sound off,2
+	call eatSound_Timer,232
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,233
+
+	sound off,2
+	call eatSound_Timer,235
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,236
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,239
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,240
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,247
+
+	call beep,1,87,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,248
+
+	sound off,2
+	call beep,3,64,40,3,0
+	call eatSound_Timer,249
+
+	call beep,1,88,40,1,0
+	call eatSound_Timer,251
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,252
+
+	sound off,2
+	call beep,3,68,56,3,0
+	call eatSound_Timer,253
+
+	sound off,2
+	call eatSound_Timer,254
+
+	sound off,2
+	call eatSound_Timer,255
+
+	sound off,2
+	call eatSound_Timer,256
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,257
+
+	sound off,2
+	call eatSound_Timer,259
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,92,40,1,0
+	call eatSound_Timer,260
+
+	sound off,2
+	call eatSound_Timer,263
+
+	call beep,1,84,40,1,0
+	call beep,2,70,56,0,0
+	call beep,4,95,40,1,0
+	call eatSound_Timer,264
+
+	sound off,2
+	call beep,3,71,56,3,0
+	call eatSound_Timer,268
+
+	sound off,3
+	call eatSound_Timer,271
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,272
+
+	sound off,2
+	call beep,3,68,56,3,0
+	call eatSound_Timer,275
+
+	call beep,1,84,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,276
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,277
+
+	sound off,2
+	call eatSound_Timer,278
+
+	sound off,2
+	call eatSound_Timer,279
+
+	sound off,2
+	sound off,4
+	call eatSound_Timer,280
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,281
+
+	sound off,2
+	call eatSound_Timer,283
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,284
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,287
+
+	call beep,1,81,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,288
+
+	sound off,2
+	call beep,3,69,56,3,0
+	call eatSound_Timer,292
+
+	sound off,3
+	call eatSound_Timer,295
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,296
+
+	sound off,2
+	call eatSound_Timer,299
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,300
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,301
+
+	sound off,2
+	call eatSound_Timer,302
+
+	sound off,2
+	call eatSound_Timer,303
+
+	sound off,2
+	call eatSound_Timer,304
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,305
+
+	sound off,2
+	call eatSound_Timer,307
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,308
+
+	sound off,2
+	call eatSound_Timer,311
+
+	call beep,1,81,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,312
+
+	sound off,2
+	call beep,3,60,56,3,0
+	call eatSound_Timer,316
+
+	sound off,3
+	call eatSound_Timer,319
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,320
+
+	sound off,2
+	call eatSound_Timer,323
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,324
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,325
+
+	sound off,2
+	call eatSound_Timer,326
+
+	sound off,2
+	call eatSound_Timer,327
+
+	sound off,2
+	call eatSound_Timer,328
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,329
+
+	sound off,2
+	call eatSound_Timer,331
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,332
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,335
+
+	call beep,1,86,40,1,0
+	call beep,2,70,56,0,0
+	call beep,4,93,40,1,0
+	call eatSound_Timer,336
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,343
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,344
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,347
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,348
+
+	sound off,2
+	call beep,3,66,56,3,0
+	call eatSound_Timer,349
+
+	sound off,2
+	call eatSound_Timer,350
+
+	sound off,2
+	call eatSound_Timer,351
+
+	sound off,2
+	call eatSound_Timer,352
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,353
+
+	sound off,2
+	call eatSound_Timer,355
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,356
+
+	sound off,2
+	call eatSound_Timer,359
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,360
+
+	call beep,1,88,56,1,0
+	sound off,2
+	call beep,3,69,56,3,0
+	call eatSound_Timer,364
+
+	call beep,3,67,40,3,0
+	call eatSound_Timer,367
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,368
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,371
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,372
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,373
+
+	sound off,2
+	call eatSound_Timer,374
+
+	sound off,2
+	call eatSound_Timer,375
+
+	sound off,2
+	call eatSound_Timer,376
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,377
+
+	sound off,2
+	call eatSound_Timer,379
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,380
+
+	sound off,2
+	call eatSound_Timer,383
+
+	call beep,1,82,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,384
+
+	sound off,2
+	call beep,3,55,56,3,0
+	call eatSound_Timer,385
+
+	call beep,1,83,40,1,0
+	call eatSound_Timer,388
+
+	sound off,3
+	call eatSound_Timer,391
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,392
+
+	sound off,2
+	call eatSound_Timer,395
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,79,40,1,0
+	call eatSound_Timer,396
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,397
+
+	sound off,2
+	call eatSound_Timer,398
+
+	sound off,2
+	call eatSound_Timer,399
+
+	sound off,2
+	call eatSound_Timer,400
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,401
+
+	sound off,2
+	call eatSound_Timer,403
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,404
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call eatSound_Timer,407
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,408
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,412
+
+	sound off,3
+	call eatSound_Timer,415
+
+	call beep,2,70,56,0,0
+	call beep,4,79,40,1,0
+	call eatSound_Timer,416
+
+	sound off,2
+	call eatSound_Timer,419
+
+	call beep,2,70,56,0,0
+	call beep,4,86,40,1,0
+	call eatSound_Timer,420
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,421
+
+	sound off,2
+	call eatSound_Timer,422
+
+	sound off,2
+	call eatSound_Timer,423
+
+	sound off,2
+	call eatSound_Timer,424
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,425
+
+	sound off,2
+	call eatSound_Timer,427
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,428
+
+	sound off,2
+	call beep,3,62,56,3,0
+	call eatSound_Timer,431
+
+	call beep,1,82,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,432
+
+	call beep,1,83,56,1,0
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,436
+
+	sound off,3
+	call eatSound_Timer,439
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,440
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,443
+
+	call beep,1,86,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,444
+
+	sound off,2
+	call beep,3,63,56,3,0
+	call eatSound_Timer,445
+
+	sound off,2
+	call eatSound_Timer,446
+
+	sound off,2
+	call eatSound_Timer,447
+
+	sound off,2
+	call eatSound_Timer,448
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,449
+
+	sound off,2
+	call eatSound_Timer,451
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,452
+
+	sound off,2
+	call eatSound_Timer,455
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,456
+
+	sound off,2
+	call beep,3,66,56,3,0
+	call eatSound_Timer,460
+
+	sound off,3
+	call eatSound_Timer,463
+
+	call beep,1,83,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,464
+
+	sound off,2
+	call eatSound_Timer,467
+
+	call beep,1,86,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,468
+
+	sound off,2
+	call beep,3,63,56,3,0
+	call eatSound_Timer,469
+
+	sound off,2
+	call eatSound_Timer,470
+
+	sound off,2
+	call eatSound_Timer,471
+
+	sound off,2
+	call eatSound_Timer,472
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,473
+
+	sound off,2
+	call eatSound_Timer,475
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,476
+
+	sound off,2
+	call eatSound_Timer,479
+
+	call beep,1,87,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,480
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,481
+
+	call beep,1,88,40,1,0
+	call eatSound_Timer,484
+
+	sound off,3
+	call eatSound_Timer,487
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,488
+
+	sound off,2
+	call eatSound_Timer,491
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,492
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,493
+
+	sound off,2
+	call eatSound_Timer,494
+
+	sound off,2
+	call eatSound_Timer,495
+
+	sound off,2
+	call eatSound_Timer,496
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,497
+
+	sound off,2
+	call eatSound_Timer,499
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,500
+
+	sound off,2
+	call eatSound_Timer,503
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,504
+
+	sound off,2
+	call beep,3,55,56,3,0
+	call eatSound_Timer,508
+
+	sound off,3
+	call eatSound_Timer,511
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,512
+
+	sound off,2
+	call eatSound_Timer,515
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,516
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,517
+
+	sound off,2
+	call eatSound_Timer,518
+
+	sound off,2
+	call eatSound_Timer,519
+
+	sound off,2
+	call eatSound_Timer,520
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,521
+
+	sound off,2
+	call eatSound_Timer,523
+
+	call beep,1,91,40,1,0
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,524
+
+	sound off,2
+	call beep,3,60,56,3,0
+	call eatSound_Timer,527
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,528
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,535
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,536
+
+	sound off,2
+	call beep,3,60,56,3,0
+	call eatSound_Timer,539
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,540
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,541
+
+	sound off,2
+	call eatSound_Timer,542
+
+	sound off,2
+	call eatSound_Timer,543
+
+	sound off,2
+	call eatSound_Timer,544
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,545
+
+	sound off,2
+	call eatSound_Timer,547
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,548
+
+	sound off,2
+	call eatSound_Timer,551
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,552
+
+	sound off,2
+	call beep,3,67,56,3,0
+	call eatSound_Timer,556
+
+	sound off,3
+	call eatSound_Timer,559
+
+	call beep,1,94,40,1,0
+	call beep,2,70,56,0,0
+	call eatSound_Timer,560
+
+	call beep,1,95,56,1,0
+	sound off,2
+	call eatSound_Timer,563
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,564
+
+	sound off,2
+	call beep,3,64,56,3,0
+	call eatSound_Timer,565
+
+	sound off,2
+	call eatSound_Timer,566
+
+	sound off,2
+	call eatSound_Timer,567
+
+	sound off,2
+	call eatSound_Timer,568
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,569
+
+	sound off,2
+	call eatSound_Timer,571
+
+	sound off,1
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,572
+
+	sound off,2
+	call eatSound_Timer,575
+
+	call beep,2,70,56,0,0
+	call beep,4,91,40,1,0
+	call eatSound_Timer,576
+
+	sound off,2
+	call beep,3,55,40,3,0
+	call eatSound_Timer,580
+
+	sound off,3
+	call eatSound_Timer,583
+
+	call beep,2,70,56,0,0
+	call eatSound_Timer,584
+
+	sound off,2
+	call eatSound_Timer,587
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call eatSound_Timer,588
+
+	sound off,2
+	call beep,3,59,56,3,0
+	call eatSound_Timer,589
+
+	sound off,2
+	call eatSound_Timer,590
+
+	sound off,2
+	call eatSound_Timer,591
+
+	sound off,2
+	call eatSound_Timer,592
+
+	sound off,2
+	sound off,3
+	call eatSound_Timer,593
+
+	sound off,2
+	call eatSound_Timer,595
+
+	call beep,2,70,56,0,0
+	sound off,4
+	call eatSound_Timer,596
+
+	sound off,2
+	call eatSound_Timer,599
+
+	sound off,1
+	call beep,2,70,56,0,0
+	call beep,4,93,40,1,0
+	call eatSound_Timer,600
+
+	sound off,2
+endproc

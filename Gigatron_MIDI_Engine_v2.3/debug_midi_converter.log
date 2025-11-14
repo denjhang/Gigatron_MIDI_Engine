@@ -1,0 +1,1145 @@
+Debug log opened.
+Event Tick: 0, Command Byte: ff, Command Nibble: 240, Message Bytes: ff 51 3 7 a1 20 
+Event Tick: 0, Command Byte: ff, Command Nibble: 240, Message Bytes: ff 58 4 4 2 18 8 
+Event Tick: 1, Command Byte: ff, Command Nibble: 240, Message Bytes: ff 2f 0 
+Event Tick: 969, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 5b 
+[DYNAMIC] Assigned new Gigatron Channel 1 to MIDI Channel 0
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 970, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 43 on MIDI Channel 0
+Event Tick: 1052, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 1060, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 0 
+[POLYPHONY] Removed note 43 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1064, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 66 on MIDI Channel 0
+Event Tick: 1113, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 1178, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 1179, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 59 on MIDI Channel 0
+Event Tick: 1203, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1272, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 57 on MIDI Channel 0
+Event Tick: 1315, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1371, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 5d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 59 on MIDI Channel 0
+Event Tick: 1420, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1487, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 1592, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 52 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 64 on MIDI Channel 0
+Event Tick: 1596, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 47 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 55 on MIDI Channel 0
+Event Tick: 1615, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1632, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 1635, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 1685, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 66 on MIDI Channel 0
+Event Tick: 1706, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 1785, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 1789, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 43 on MIDI Channel 0
+Event Tick: 1792, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 5a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 1820, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 0 
+[POLYPHONY] Removed note 43 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 1891, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 1924, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 1997, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 59 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 1999, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4c 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 2009, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2033, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 2090, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 2091, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 2143, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2195, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 42 on MIDI Channel 0
+Event Tick: 2200, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 61 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 2275, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 0 
+[POLYPHONY] Removed note 42 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2300, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 2315, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 2348, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2399, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 5b 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 2402, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 2444, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2493, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 2587, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2591, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 2617, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2693, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 2714, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 2794, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 57 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 2804, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2813, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 2841, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 2901, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 51 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 2914, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 2991, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3005, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 5e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 3006, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 42 on MIDI Channel 0
+Event Tick: 3037, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 0 
+[POLYPHONY] Removed note 42 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3098, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 5c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 3116, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3200, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3205, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 5a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 3205, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 4d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 3236, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3290, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 5b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 3302, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3337, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3406, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 5c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 79 on MIDI Channel 0
+Event Tick: 3409, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 40 on MIDI Channel 0
+Event Tick: 3483, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 0 
+[POLYPHONY] Removed note 40 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3499, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 5c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 78 on MIDI Channel 0
+Event Tick: 3535, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3561, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 3612, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 3614, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 5b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 79 on MIDI Channel 0
+Event Tick: 3640, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3704, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 3740, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3805, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 3834, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 3906, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 3932, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4012, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 4014, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4f 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 4034, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4044, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 4098, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 4103, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4214, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 55 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 73 on MIDI Channel 0
+Event Tick: 4218, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 55 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 45 on MIDI Channel 0
+Event Tick: 4235, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4253, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 0 
+[POLYPHONY] Removed note 45 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 4305, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 4319, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4394, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4409, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 4414, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 61 on MIDI Channel 0
+Event Tick: 4450, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4488, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4500, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 4613, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 57 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 66 on MIDI Channel 0
+Event Tick: 4616, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 54 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 50 on MIDI Channel 0
+Event Tick: 4627, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4669, Command Byte: b0, Command Nibble: 176, Message Bytes: b0 40 7f 
+Controller Change on MIDI Channel 0: Controller 64 = 127
+Event Tick: 4721, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 64 on MIDI Channel 0
+Event Tick: 4762, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4776, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 4776, Command Byte: b0, Command Nibble: 176, Message Bytes: b0 40 0 
+Controller Change on MIDI Channel 0: Controller 64 = 0
+Event Tick: 4801, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4819, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 4819, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 4848, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 4906, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4913, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 61 on MIDI Channel 0
+Event Tick: 4927, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 4b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 52 on MIDI Channel 0
+Event Tick: 4966, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 4997, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5017, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 5017, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 5051, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 5111, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5121, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 66 on MIDI Channel 0
+Event Tick: 5193, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5227, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 55 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 5228, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 5257, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 5306, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5329, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4b 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 5396, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5435, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 26 4b 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 38 on MIDI Channel 0
+Event Tick: 5436, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 5502, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 26 0 
+[POLYPHONY] Removed note 38 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5518, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 5533, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 5639, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 4b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 5641, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5708, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 5741, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 48 on MIDI Channel 0
+Event Tick: 5773, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 0 
+[POLYPHONY] Removed note 48 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5854, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 4e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 47 on MIDI Channel 0
+Event Tick: 5934, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 0 
+[POLYPHONY] Removed note 47 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 5944, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 42 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 45 on MIDI Channel 0
+Event Tick: 6056, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 0 
+[POLYPHONY] Removed note 45 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6068, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 41 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 47 on MIDI Channel 0
+Event Tick: 6069, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 6143, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6155, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 48 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 72 on MIDI Channel 0
+Event Tick: 6185, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 48 0 
+[POLYPHONY] Removed note 72 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6264, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 6295, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6346, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 0 
+[POLYPHONY] Removed note 47 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6369, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 44 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 6472, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 4a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 6478, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6494, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 44 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 6509, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6575, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6588, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 41 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 6663, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6679, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 6683, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 42 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 6709, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6778, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6801, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 44 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 6888, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6892, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4b 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 6893, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 49 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 6933, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 6961, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 6987, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 7026, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7101, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 40 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 48 on MIDI Channel 0
+Event Tick: 7184, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 0 
+[POLYPHONY] Removed note 48 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7192, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 47 on MIDI Channel 0
+Event Tick: 7301, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 54 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 7308, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 4c 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 48 on MIDI Channel 0
+Event Tick: 7344, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 0 
+[POLYPHONY] Removed note 47 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7385, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 7390, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 7422, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7494, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 55 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 7541, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7580, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 30 0 
+[POLYPHONY] Removed note 48 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 7593, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 49 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 7696, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7699, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 7700, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 7729, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7805, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 7812, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 7879, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 7899, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 4e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 7900, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 60 on MIDI Channel 0
+Event Tick: 7934, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 0 
+[POLYPHONY] Removed note 60 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8010, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 59 on MIDI Channel 0
+Event Tick: 8015, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8110, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8111, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 60 on MIDI Channel 0
+Event Tick: 8114, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 8171, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 0 
+[POLYPHONY] Removed note 60 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8186, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8198, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 8256, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8306, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 8409, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 31 52 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 49 on MIDI Channel 0
+Event Tick: 8413, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8504, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 31 0 
+[POLYPHONY] Removed note 49 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8514, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 8515, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 49 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 8562, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8600, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 8628, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8703, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 5f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 8734, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8801, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 8811, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8905, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 5c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 8907, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 52 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 59 on MIDI Channel 0
+Event Tick: 8948, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 8953, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 8998, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 9007, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 60 on MIDI Channel 0
+Event Tick: 9062, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3c 0 
+[POLYPHONY] Removed note 60 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9101, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 81 on MIDI Channel 0
+Event Tick: 9122, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 41 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 9124, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 0 
+[POLYPHONY] Removed note 81 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9196, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 9206, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 47 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 64 on MIDI Channel 0
+Event Tick: 9288, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9309, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 48 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 72 on MIDI Channel 0
+Event Tick: 9311, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 43 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 66 on MIDI Channel 0
+Event Tick: 9409, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 9428, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 3d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 9506, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 9535, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 40 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 9587, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 9620, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 40 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 66 on MIDI Channel 0
+Event Tick: 9696, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 9704, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 48 0 
+[POLYPHONY] Removed note 72 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9720, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 3a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 9720, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 3d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 9808, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9835, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 40 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 9918, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 9941, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 10000, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10030, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 10033, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 50 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 67 on MIDI Channel 0
+Event Tick: 10037, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10127, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 10131, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10132, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 10223, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 58 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 74 on MIDI Channel 0
+Event Tick: 10224, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 54 
+[POLYPHONY] Replaced oldest note 67 on Gigatron Channel 3 with new note 59 on MIDI Channel 0
+Event Tick: 10238, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10249, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10275, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+Event Tick: 10316, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 10323, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 79 on MIDI Channel 0
+Event Tick: 10325, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 4a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 10326, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 10388, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10414, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10419, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 10419, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 10509, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 57 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 79 on MIDI Channel 0
+Event Tick: 10512, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 4d 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 47 on MIDI Channel 0
+Event Tick: 10521, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10529, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10603, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 81 on MIDI Channel 0
+Event Tick: 10605, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 10609, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 10609, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2f 0 
+[POLYPHONY] Removed note 47 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 10648, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 0 
+[POLYPHONY] Removed note 81 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10670, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10714, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 51 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 43 on MIDI Channel 0
+Event Tick: 10718, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 53 5b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 83 on MIDI Channel 0
+Event Tick: 10749, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 0 
+[POLYPHONY] Removed note 43 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10806, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 53 0 
+[POLYPHONY] Removed note 83 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 10849, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 43 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 79 on MIDI Channel 0
+Event Tick: 10917, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10932, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 10938, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 4c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 10966, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 10979, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11039, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 71 on MIDI Channel 0
+Event Tick: 11076, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11133, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 11139, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 11161, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11170, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11235, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 49 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 71 on MIDI Channel 0
+Event Tick: 11321, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11340, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 11344, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 11393, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11437, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 79 on MIDI Channel 0
+Event Tick: 11439, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11493, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11543, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 43 on MIDI Channel 0
+Event Tick: 11545, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 53 5b 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 83 on MIDI Channel 0
+Event Tick: 11576, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2b 0 
+[POLYPHONY] Removed note 43 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11648, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 79 on MIDI Channel 0
+Event Tick: 11688, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 53 0 
+[POLYPHONY] Removed note 83 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11749, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 59 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 78 on MIDI Channel 0
+Event Tick: 11750, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 51 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 11772, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11801, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 11812, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 11843, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 11884, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 11952, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 5d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 42 on MIDI Channel 0
+Event Tick: 11953, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 5a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 81 on MIDI Channel 0
+Event Tick: 11984, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 0 
+[POLYPHONY] Removed note 42 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12066, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 12139, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12161, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 12163, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4e 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 54 on MIDI Channel 0
+Event Tick: 12203, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 12258, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 47 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 69 on MIDI Channel 0
+Event Tick: 12300, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 12311, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12334, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 0 
+[POLYPHONY] Removed note 81 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 12379, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 12381, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 4c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 66 on MIDI Channel 0
+Event Tick: 12409, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12423, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 12474, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 4a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 12579, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 73 on MIDI Channel 0
+Event Tick: 12583, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 51 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 54 on MIDI Channel 0
+Event Tick: 12605, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12610, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 12674, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 12677, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 12712, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12776, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 5e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 42 on MIDI Channel 0
+Event Tick: 12786, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 59 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 81 on MIDI Channel 0
+Event Tick: 12815, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2a 0 
+[POLYPHONY] Removed note 42 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 12890, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 12916, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 51 0 
+[POLYPHONY] Removed note 81 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 12997, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 12998, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 50 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 54 on MIDI Channel 0
+Event Tick: 13028, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 13032, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13067, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 13089, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 13131, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13205, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 40 on MIDI Channel 0
+Event Tick: 13205, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 79 on MIDI Channel 0
+Event Tick: 13237, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 0 
+[POLYPHONY] Removed note 40 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13310, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 13313, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 13404, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13412, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 13413, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 13438, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13465, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 13502, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 49 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 13582, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13611, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 64 on MIDI Channel 0
+Event Tick: 13617, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 13650, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 13672, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13700, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 13796, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13805, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 71 on MIDI Channel 0
+Event Tick: 13820, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 4d 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 52 on MIDI Channel 0
+Event Tick: 13866, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 13890, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 13897, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 13937, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14002, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 5c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 40 on MIDI Channel 0
+Event Tick: 14022, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 59 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 79 on MIDI Channel 0
+Event Tick: 14036, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 28 0 
+[POLYPHONY] Removed note 40 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14113, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 14127, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14214, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 14219, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 49 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 14224, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 39 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 52 on MIDI Channel 0
+Event Tick: 14231, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 14256, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 14272, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14284, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14296, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 14340, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14412, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 55 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 14413, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 45 on MIDI Channel 0
+Event Tick: 14443, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 0 
+[POLYPHONY] Removed note 45 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14520, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 14529, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14610, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14618, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 64 on MIDI Channel 0
+Event Tick: 14618, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 52 on MIDI Channel 0
+Event Tick: 14655, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14671, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14722, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 61 on MIDI Channel 0
+Event Tick: 14826, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 52 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 57 on MIDI Channel 0
+Event Tick: 14827, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 51 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 14836, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 14857, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 14891, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 14919, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 48 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 61 on MIDI Channel 0
+Event Tick: 14957, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15021, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 54 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 15025, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 64 on MIDI Channel 0
+Event Tick: 15054, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15119, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 48 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 15133, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 15219, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 52 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 73 on MIDI Channel 0
+Event Tick: 15220, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 55 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 45 on MIDI Channel 0
+Event Tick: 15231, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15262, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 0 
+[POLYPHONY] Removed note 45 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 15311, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 15315, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 15421, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 15425, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 4e 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 74 on MIDI Channel 0
+Event Tick: 15455, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 15463, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15507, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 15521, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 15609, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15617, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 74 on MIDI Channel 0
+Event Tick: 15619, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 55 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 15650, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15731, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 15763, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 15816, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 49 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 15817, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 48 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 62 on MIDI Channel 0
+Event Tick: 15847, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 15851, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 15882, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 15922, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 4e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 66 on MIDI Channel 0
+Event Tick: 16021, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 4f 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 69 on MIDI Channel 0
+Event Tick: 16024, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16032, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 16055, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16124, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 16126, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 66 on MIDI Channel 0
+Event Tick: 16159, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16230, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 51 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 16231, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 16259, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16323, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 16334, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 4f 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 16419, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16435, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 46 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 16436, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 5a 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 16461, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 16531, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16541, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 4b 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 16629, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16639, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 5a 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 78 on MIDI Channel 0
+Event Tick: 16647, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 45 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 50 on MIDI Channel 0
+Event Tick: 16683, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16721, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 16731, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 45 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 54 on MIDI Channel 0
+Event Tick: 16761, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 16841, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 16844, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 4e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 71 on MIDI Channel 0
+Event Tick: 16875, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 16942, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 59 on MIDI Channel 0
+Event Tick: 16976, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17040, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 17045, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 49 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 55 on MIDI Channel 0
+Event Tick: 17051, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 17084, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 17106, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17138, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 17234, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17240, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 71 on MIDI Channel 0
+Event Tick: 17242, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 17279, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 17299, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17347, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 17386, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17445, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 58 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 71 on MIDI Channel 0
+Event Tick: 17446, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 55 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 62 on MIDI Channel 0
+Event Tick: 17470, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17541, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4e 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 17556, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 17636, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17639, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 4c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 55 on MIDI Channel 0
+Event Tick: 17641, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 5e 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 76 on MIDI Channel 0
+Event Tick: 17680, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 17736, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17737, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 4d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 59 on MIDI Channel 0
+Event Tick: 17828, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 17843, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 53 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 52 on MIDI Channel 0
+Event Tick: 17843, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 5c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 79 on MIDI Channel 0
+Event Tick: 17887, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 17938, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 52 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 17950, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18043, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 5d 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 57 on MIDI Channel 0
+Event Tick: 18045, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 58 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 73 on MIDI Channel 0
+Event Tick: 18045, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 4c 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 79 on MIDI Channel 0
+Event Tick: 18056, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 18073, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18094, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 18146, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 50 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 18153, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 18238, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18250, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 51 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 18250, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 54 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 61 on MIDI Channel 0
+Event Tick: 18282, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 18334, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18343, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 67 on MIDI Channel 0
+Event Tick: 18417, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18449, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 5c 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 18450, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 50 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 66 on MIDI Channel 0
+Event Tick: 18518, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 18533, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 0 
+[POLYPHONY] Removed note 62 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18543, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 52 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 18546, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 54 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 57 on MIDI Channel 0
+Event Tick: 18642, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 4e 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 54 on MIDI Channel 0
+Event Tick: 18643, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 56 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 74 on MIDI Channel 0
+Event Tick: 18653, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+[POLYPHONY] Removed note 69 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18658, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 18739, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 46 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 18741, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 59 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 78 on MIDI Channel 0
+Event Tick: 18764, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 18766, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 18830, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 57 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 57 on MIDI Channel 0
+Event Tick: 18835, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 59 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 79 on MIDI Channel 0
+Event Tick: 18857, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 18857, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 18869, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 18934, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 76 on MIDI Channel 0
+Event Tick: 18951, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4f 0 
+[POLYPHONY] Removed note 79 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 19024, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4c 0 
+[POLYPHONY] Removed note 76 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19035, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 45 on MIDI Channel 0
+Event Tick: 19035, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 57 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 19068, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 2d 0 
+[POLYPHONY] Removed note 45 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19121, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 59 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 19135, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19233, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 26 54 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 38 on MIDI Channel 0
+Event Tick: 19235, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 59 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 78 on MIDI Channel 0
+Event Tick: 19252, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19299, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 26 0 
+[POLYPHONY] Removed note 38 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19301, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4e 0 
+[POLYPHONY] Removed note 78 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 19326, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 56 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 50 on MIDI Channel 0
+Event Tick: 19326, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 56 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 74 on MIDI Channel 0
+Event Tick: 19370, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 32 0 
+[POLYPHONY] Removed note 50 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19423, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 73 on MIDI Channel 0
+Event Tick: 19426, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 53 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 52 on MIDI Channel 0
+Event Tick: 19449, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 4a 0 
+[POLYPHONY] Removed note 74 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19516, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 53 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 54 on MIDI Channel 0
+Event Tick: 19518, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 59 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 71 on MIDI Channel 0
+Event Tick: 19547, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 49 0 
+[POLYPHONY] Removed note 73 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19550, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 34 0 
+[POLYPHONY] Removed note 52 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 19618, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 36 0 
+[POLYPHONY] Removed note 54 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19618, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 57 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 69 on MIDI Channel 0
+Event Tick: 19618, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 55 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 55 on MIDI Channel 0
+Event Tick: 19649, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 47 0 
+[POLYPHONY] Removed note 71 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 19705, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 37 0 
+[POLYPHONY] Removed note 55 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19712, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 51 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 67 on MIDI Channel 0
+Event Tick: 19712, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 57 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 57 on MIDI Channel 0
+Event Tick: 19816, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 56 
+[POLYPHONY] Assigned available Gigatron Channel 4 to note 66 on MIDI Channel 0
+Event Tick: 19818, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 54 
+[POLYPHONY] Replaced oldest note 69 on Gigatron Channel 1 with new note 59 on MIDI Channel 0
+Event Tick: 19819, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 43 0 
+[POLYPHONY] Removed note 67 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 19822, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 45 0 
+Event Tick: 19825, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 39 0 
+[POLYPHONY] Removed note 57 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 19900, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 58 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 64 on MIDI Channel 0
+Event Tick: 19903, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 53 
+[POLYPHONY] Assigned available Gigatron Channel 3 to note 61 on MIDI Channel 0
+Event Tick: 19915, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+[POLYPHONY] Removed note 59 from Gigatron Channel 1 on MIDI Channel 0
+Event Tick: 19932, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 42 0 
+[POLYPHONY] Removed note 66 from Gigatron Channel 4 on MIDI Channel 0
+Event Tick: 19956, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 40 0 
+[POLYPHONY] Removed note 64 from Gigatron Channel 2 on MIDI Channel 0
+Event Tick: 20017, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3d 0 
+[POLYPHONY] Removed note 61 from Gigatron Channel 3 on MIDI Channel 0
+Event Tick: 20023, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3e 55 
+[POLYPHONY] Assigned available Gigatron Channel 1 to note 62 on MIDI Channel 0
+Event Tick: 20024, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 3c 
+[POLYPHONY] Assigned available Gigatron Channel 2 to note 59 on MIDI Channel 0
+Event Tick: 20098, Command Byte: 90, Command Nibble: 144, Message Bytes: 90 3b 0 
+Debug log closed.

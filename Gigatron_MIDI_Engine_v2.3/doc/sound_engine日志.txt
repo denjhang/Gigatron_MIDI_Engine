@@ -1,0 +1,391 @@
+很好，请通读当前转换器midi_converter.cpp代码并更新文档MIDI_Converter_Documentation_CN.md和MIDI_Converter_Documentation_EN.md
+
+注意，如果指定-time 11.8会截断宏，那么不要截断，要让这一个音符演奏完毕。
+
+很好，发现一个问题，vol=45 35 relase 25 15 0 在音量为0时或者noteoff必须使用sound off,通道数。
+如果音量为0和noteoff都使用beep产生音量0，那么会出现大量噪音。
+因此将音量0和noteoff都使用“sound off,通道数”来转换。
+
+./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 11.8 -config midi_config.ini
+
+midi_converter.cpp继续改进，用make进行编译，测试转换用：
+./midi_converter.exe Variation1.mid Variation1.gbas -d -time 26.5 -config midi_config.ini
+请将音乐数据部分改为这样，可以实现无限循环演奏。
+proc music_data '先定时，再演奏，一次性演奏4个通道
+start:
+	tick_sum=0
+ （音乐数据...）
+	goto start
+endproc
+
+
+
+
+
+./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -config midi_config.ini
+-time 30剩余内存12.862kb，
+-time 40剩余内存2.862kb,
+-time 42剩余内存0.750kb,
+
+宏定义长度不足则保持最后一个不变，直到下一次noteon重新刷新，这是原则。
+
+bwv813v.gbas为什么会有-1，
+
+bwv813v.mid只使用Instrument_0，为什么还会出现波形0，我写的wave=2 1 。
+
+midi_converter.cpp继续改进，用make进行编译，
+./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -min_volume 40 -config midi_config.ini
+请检查转换结果，为什么波形会变成0，你是不是解析错误了。
+注意在执行relase事件之后可以不用sound off，如果relase没有被执行完，
+那么可以直接被新的beep截断，这没问题，因此不一定要sound off，只有在relase之前被截断的才要sound off。
+
+
+注意在执行relase事件之后可以不用sound off。
+请检查转换结果，为什么波形会变成0？，你是不是解析错误
+
+好，请为宏定义添加键释放后的事件，也就是noteoff之后执行宏指令之后的事件，注意维护noteoff之后的音符状态，比如
+vol=63 53 43 33 relase 30 20 10 0
+，relase后音符长度被算入总音符长度，同样执行先进先出原则不改变。
+
+wave=3 3 1 1配置没有响应，请检查，目前转换结果全是1
+
+./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -min_volume 40 -config midi_config.ini
+
+为什么大量音量是40，如果音符时间长度没到宏定义的几个空格数据长度，则按照时间顺序截断后面的音量定义，演奏宏定义就是按照时间顺序执行，这不需要任何精简。我认为宏定义的优先级应该最高，如果开启配置选择，则宏定义的优先级最高且不得进行任何精简。
+
+
+每次转换完成之后请bwv813v.gbas请检查输出文件，自行读取验证。
+
+bwv813v.gbas请检查输出文件，为什么还出现了同一个tick下重复改变同一个通道的beep，请注意必须要有增量，在同一tick下重复定义同一个通道的beep是没有意义的。
+
+我发现使用 ./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -min_volume 40 -accuracy 30 -config midi_config.ini，音量简化逻辑有问题，因为vol=63 60 55 50 45 40 35 30，从来没有一次音量为63，简化逻辑必须保证最大音量和最小音量必须出现，只精简中间的状态。
+而且有个大问题，我通过调试输出发现你搞错了宏的tick，
+gprintf() : 0x11D8 : "TIMER=1,tick=833,beep,1,63,53,1,833,sound_frq=2675,pitch=0"
+gprintf() : 0x11D8 : "TIMER=1,tick=833,beep,1,63,40,1,833,sound_frq=2675,pitch=0"
+gprintf() : 0x0FC0 : "TIMER=0,tick=834"
+gprintf() : 0x11D8 : "TIMER=1,tick=834,beep,3,79,51,1,834,sound_frq=6591,pitch=0"
+gprintf() : 0x11D8 : "TIMER=1,tick=834,beep,3,79,40,1,834,sound_frq=6591,pitch=0"
+gprintf() : 0x0FC0 : "TIMER=0,tick=835"；
+宏定义不是在相同tick瞬间同时实行音量改变，而是在noteon和noteoff之间实行变化，因此：
+[Instrument_0]
+name=Acoustic Grand Piano
+accuracy=30
+vol=63 60 55 50 45 40 35 30
+note=0
+wave=1
+pitch_bend=0 
+，这样的配置必须出现7个音量状态在不同的tick，
+所以正确的行为是比如钢琴c4按下，每个空格代表的tick增量就是60/30=2，那么tick1的音量是63，tick3的音量是60，tick5的音量是55，以此类推。因为声音定时器是固定的1/60秒，因此分母永远是60.
+如果乐器精度为5，那么乐器宏每个空格代表的tick增量就是60/5，以此类推。
+
+由于此处乐器精度和命令行指定的完全相同，因此无需任何精简，如果两者精度不同才开始精简，但是记住精度的确切时间就是1/精度，并且最大精度是60，乐器的最小精度可以是小数。
+
+
+
+accuracy=30说的是本乐器的宏精度为30，如果命令行指定精度大于30则无需处理，若命令行指定精度小于配置文件的精度，则按照处理MIDI相同逻辑进行命令简化。命令行的参数命令的优先级高于配置文件的。
+
+
+midi_converter.cpp继续改进，用make进行编译，
+注意宏定义作用单位是单个音符内的事件定义，也就是noteon之后对音量，波形等进行修改，请检查。
+ ./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -min_volume 40 -accuracy 30 -config midi_config.ini
+
+
+midi_converter.cpp继续改进，用make进行编译，
+为本程序加入配置文件ini可以指定midi乐器或鼓声转换到beep的宏定义，
+首先在ini初始化midi全部128个乐器（0到127号）和鼓声（ID27到87），
+然后允许定义每个乐器的转换宏,每一个宏元素按空格分割，
+比如MIDI INS 0 Piano：（写清楚通用GM的乐器英文名）
+accuracy=30 （精度为5，表示本乐器的tick时间为1/30秒）
+vol:63 60 55 50 45 40 35 30 （每一个空格表示一个tick，注意不同精度的tick实际时间长度不同）
+(数值0到255.允许音量超过63，因为64到190是三角波的PWM效果区域，)
+note:0 (音高偏移，允许正负整数)
+wave:3 3 3 1 1 1（波形更改）
+Pitch_Bend:0 -5 5 -3 3 0（弯音更改）
+注意精度无法用宏调整，是一个确定的数值。其他各个条目都可以用我定义的宏指令控制。
+写好之后使用它测试本功能：
+ ./midi_converter.exe bwv813v.mid bwv813v.gbas -d -time 30 -min_volume 20 -accuracy 20 -config midi_config.ini
+
+
+midi_converter.cpp继续改进，用make进行编译，
+你的解析不完整，请认真看每一句。
+然后允许定义每个乐器的转换宏,每一个宏元素按空格分割，
+比如MIDI INS 0 Piano：（写清楚通用GM的乐器英文名）
+accuracy=30 （精度为30，表示本乐器的tick时间为1/30秒）
+vol:63 >=10 40 loop_start 35~45=10 loop_end relase >=50 0 
+(数值0到255.允许音量超过63，因为64到190是三角波的PWM效果区域，)
+note:0 (音高偏移，允许正负整数)
+wave:3 =5 1 2 1 2 1 （波形更改，=5表示持续5个tick都是3，1表示下一个tick改为1）
+Pitch_Bend:0 -5~5=10 0 （-5~5表示颤音范围，=10表示颤音tick区间为10）
+详细解释：
+vol:63 >=10 40 表示音量从63渐变到40，实施tick长度10；35~45=10表示音量变动范围35到45，过程持续tick为10.
+>=50 0表示从上一个音量渐变到0，过程持续tick为50.
+loop_start 35~45=10 loop_end relase 表示此处开始/结束循环，循环内容35~45=10，直到MIDI键释放，循环结束；
+note:0，表示音高偏移0
+
+wave:3 =5 1 2 1 2 1 ，表示波形一开始为3，持续5个tick，后面每个tick改为1，2，1，2，1，空格+数字就是指定单个tick行为。
+
+Pitch_Bend:0 -5~5=10 0，表示该音符一开始弯音0，然后 -5~5=10表示音量变动范围-5到5，过程持续tick为10.
+空格+0表示下一个tick弯音0。
+
+注意精度无法用宏调整，是一个确定的数值。其他各个条目都可以用我定义的宏指令控制。
+
+注意完成之后请运行并自行检查转换结果：
+ ./midi_converter.exe bwv813v.mid bwv813v.gbas -d -min_volume 20 -config midi_config.ini
+
+
+
+
+很好，但是音量抬升的逻辑改为抬升平均值，为非0和非note off所有音符计算平均值，然后整体抬升到（最小音量到63）的平均值。
+
+
+很好，但是音量抬升的原则是先检测midi内最大/最小的音量或力度，比如抬升到30，那么，抬升之后最低音量映射到30，最大音量映射到63.
+
+
+
+
+详细解释：
+vol:63 >=10 40 表示音量从63渐变到40，实施tick长度10；35~45=10表示音量变动范围35到45，过程持续tick为10.
+>=50 0表示从上一个音量渐变到0，过程持续tick为50.
+loop_start 35~45=10 loop_end relase 表示此处开始/结束循环，循环内容35~45=10，直到MIDI键释放，循环结束；
+note:0，表示音高偏移0
+
+wave:3 =5 1 2 1 2 1 ，表示波形一开始为3，持续5个tick，后面每个tick改为1，2，1，2，1，空格+数字就是指定单个tick行为。
+
+Pitch_Bend:0 -5~5=10 0，表示该音符一开始弯音0，然后 -5~5=10表示音量变动范围-5到5，过程持续tick为10.
+空格+0表示下一个tick弯音0。
+
+注意精度无法用宏调整，是一个确定的数值。其他各个条目都可以用我定义的宏指令控制。
+写好之后使用bwv813v.mid测试本功能。
+
+将本功能也加入文档。
+
+乐器宏功能需要加入-macro指令，启动之后自动覆盖其他重复的命令行指令。
+
+ ./midi_converter.exe bwv813v.mid bwv813v.gbas -config midi_config.ini
+
+很好，请通读当前转换器midi_converter.cpp代码并更新文档MIDI_Converter_Documentation_CN.md和MIDI_Converter_Documentation_EN.md
+
+
+midi_converter.cpp继续改进，用make进行编译，
+很好，建议将参数设计为这样更清晰：
+
+单音轨复音确保每个音符的noteon和off不能被切断，应该按顺序分配到beep的4个通道，也按照先进先出进行分配。
+
+
+midi_converter.cpp继续改进，用make进行编译，
+我发现某些midi只使用通道0演奏带有复音的钢琴，请自动分配，也按照先进先出，目前单音轨复音没有处理规则。
+单音轨复音确保每个音符的noteon和off不能被切断，应该按顺序分配到beep的4个通道，也按照先进先出进行分配。
+./midi_converter.exe bwv813v.mid bwv813v.gbas -d -nv -time 40  -pitch_multiple 5 -accuracy 20 -min_volume 20 -compensate 60 
+
+./midi_converter.exe ff1_open.mid ff1.gbas -d -nv -time 40  -pitch_multiple 5 -accuracy 20 -min_volume 20 -compensate 60 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+
+./midi_converter.exe toy.mid toy.gbas -vl 2 -speed 1 -time 20 -pitch_multiple 5 -accuracy 20 -min_volume 40 -compensate 60 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+
+midi_converter.cpp继续改进，用make进行编译，
+很好，请加入弯音精简指令，指定-pl 8，意味着弯音等级被精简为最多8种变化，此参数不影响对音符弯音的量化。（不要加这个）
+用它测试：
+./midi_converter.exe toy.mid toy.gbas -nv -speed 0.6 20 5 20 40 30 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+
+很好，请加入音量精简指令，指定-vl 8，意味着音量等级被精简为最多8种变化，-vl 4就是简化为4种，这让太接近的音量自动简化，简化之后的音符若完全相同的同一个通道的beep则可以合并，以减少开销。
+
+
+
+
+很好，请加入-speed指令来减慢播放速度，-speed 0.5表示音乐转换速度为正常的0.5倍，意味着所有midi事件的时间翻倍了。比如：
+./midi_converter.exe toy.mid toy.gbas -speed 0.4 -nv 39 5 20 40 30 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+
+./midi_converter.exe ff1_open.mid ff1.gbas -speed 0.4 -np 39 5 20 40 30 -ch1wave 1 -ch2wave 1 -ch3wave 3 -ch4wave 1
+
+./midi_converter.exe ff1pre.mid ff1pre.gbas -speed 0.6 20 5 20 10 20
+
+./midi_converter.exe  17_Battle.mid 17_Battle.gbas -np -speed 0.5 20 5 20 10 60
+
+midi_converter.cpp继续改进，用make进行编译，用它测试：
+很好，请加入-nv指令意味每个音符noteon之后只有一个音量（也就是noteon期间不响应力度变化），重新开启音符才更新一次音量。
+
+./midi_converter.exe toy.mid toy.gbas -nv -np 20 5 30 40 60 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+
+midi_converter.cpp继续改进，
+发现一个bug，
+
+./midi_converter.exe toy.mid toy.gbas -np 20 5 30 40 60 -ch1wave 1 -ch2wave 0 -ch3wave 3 -ch4wave 1
+./midi_converter.exe ff1_open.mid ff1.gbas -np 20 5 50 40 60 -ch1wave 2 -ch2wave 1 -ch3wave 3 -ch4wave 2
+
+，指定波形和最低音量为40之后，音量还在三十多，请修复。然后写一个make进行编译。
+
+注意音量抬升是将音量转换范围压缩到抬升数值到63，比如30~60，这不是简单的抬升最低值，而是压缩转换范围，但是不影响音量为0或者noteoff事件。
+
+建议将参数设计为这样更清晰：
+./midi_converter.exe ff1_open.mid ff1.gbas -d -np -time 40  -pitch_multiple 5 -accuracy 20 -min_volume 40 -compensate 60 -ch1wave 1 -ch2wave 1 -ch3wave 1 
+为程序加入帮助信息，转换完成打印转换成功，转换错误打印帮助信息，-h帮助信息。
+加入好之后也写文档。帮助信息用全英语，中文会乱码
+
+denjhang@DESKTOP-5FE02IV MINGW64 /d/working/vscode-projects/Reference_Project/Gigatron/ROMvX0-main/Exe
+$ g++ -o midi_converter.exe midi_converter.cpp -I./midifile-master/include ./midifile-master/src/MidiFile.cpp ./midifile-master/src/MidiEvent.cpp ./midifile-master/src/MidiEventList.cpp ./midifile-master/src/MidiMessage.cpp ./midifile-master/src/Options.cpp ./midifile-master/src/Binasc.cpp
+
+
+
+
+很好，加参数可强制指定某通道的波形，比如-ch1wave 1 -ch2wave 2 -ch3wave 3 -ch4wave 0，新增功能也写入文档
+
+
+非常好，通读当前代码，写文档详细说明程序功能和开发过程，文档要有目录，中文和英文两个md文件
+
+
+
+很好，加一个参数-np可屏蔽弯音和颤音参数，仅仅量化到半音，不给beep输出pitch，也就是pitch=0.
+
+./midi_converter.exe ff1_open.mid ff1.gbas 40 5 30 40 60 -ch1wave 1 -ch2wave 1 -ch3wave 1 -ch4wave 1
+
+./midi_converter.exe ff1_open.mid ff1.gbas -d -np     50         5            30      20        60      
+							动态分配通道    禁用弯音参数  转换前x秒 弯音轮扩大倍数   精度   最低音量    定时补偿 
+
+很好，我发现转换精度为30时曲目播放太快了，请添加一个参数来补偿到和某精度相同的定时器数量，比如60就是补偿到精度为60时的定时器数量，30就不补充补充方法是补充call eatSound_Timer，
+对于beep则让补充的eatSound_Timer分担一半数量的通道，比如30精度的某tick下同时操作4个通道beep，补偿之后则旧的tick操作2个，新补偿的tick操作另外2个。
+
+./midi_converter.exe ff1_open.mid ff1.gbas  40 5 30 20 前40秒 弯音轮扩大指数5 50hz精度 最低音量30
+
+再加一个最低音量抬升参数，比如设置为30，那么转换音量范围就在30到63之间压缩了，不过此参数不影响音量为0时和noteoff事件。
+
+请将beep里的调试语句改为  gprintf "TIMER=%d,tick=%d,beep,%d,%d,%d,%d,%d,sound_frq=%d,pitch=%d"	,get("SOUND_TIMER"),tick_sum,ch,note,vol,wave,tick_note_ext,n,Pitch_Bend
+
+./midi_converter.exe ff1_open.mid ff1.gbas  40 5 50 前30秒 弯音轮扩大指数5 50hz精度
+
+颤音轮量化到beep的弯音上。
+
+midi_converter.cpp继续改进，参考pitch_bend_analysis.md来加入弯音轮和颤音轮量化功能，由于某些MIDI的弯音轮范围很大，请自动对它进行量化，将大范围的弯音拆成MIDI索引+小范围弯曲，超过一个半音范围的弯曲将自动展开成音符+小弯曲。
+
+弯音轮范围的敏度是midi给出吗，如果是 ，它用哪个事件给出。现在给你ff1_open.mid和toy.mid，你可以写个工具尝试分析下。
+
+帮我探究这个库是如何处理弯音轮范围很大的情况，比如超过2个半音的滑音，我想找到一个准确量化弯音轮范围很大的方法。
+D:\working\vscode-projects\Reference_Project\midi_libs\fluidsynth-master；
+
+
+很好，
+
+很好，但精度降低时自动节省出现的同一个通道的命令，保证一个tick内的每个通道只设置一次，
+节省算法是为每个通道的多个重复条目的音量，弯音轮求平均值，
+如果波形改变则只取该tick的最后一个，如果音高改变也是取最后一个。
+但是优先保证noteon时的事件和noteoff，这两个优先级最高。
+
+noteon之后力度和音量的动态变化没有被完全转换，请检查ff1_open.mid前5秒发现问题
+
+静态分配是扫描所有midi通道，对有midi音符的通道直接分配，并不是前4个通道，也可以是11，12，13，14，也可以是分散的4个通道。
+静态模式如果识别到第五个通道也有音符则忽略。
+
+
+midi_converter.cpp继续改进，使用外部软件查看ff1_open.mid只使用了前4个通道，因此你的解析程序有错误，请检查解析程序。因此本程序默认没有动态分配，加入-d选项才有。
+
+
+目前4个通道的midi都无法完全正确转换。
+ 
+ ./midi_converter.exe ff1_open.mid ff1_open.gbas 5 2，检查输出文件gbas并同时检查midi，你遗漏了很多音符事件。
+
+听了一下转换结果，目前程序的缺陷是noteon之后所有力度和弯音动态改变的过程都被忽略了，请严格分析每个音符的生命周期，全过程监控，不遗漏每一个细节。
+通道处理原则是当midi使用4个通道及以下时，不采用动态分配。比如midi11，12，13，14有数据，那么只转换这4个。
+如果通道数量超过4，那么执行先进先出原则来动态分配通道。
+
+
+./midi_converter.exe ff1_open.mid ff1_open.gbas 20 2
+
+
+
+控制台允许指定弯音轮放大倍数，目前我不知道要多大才适配，请添加参数允许用户指定，然后先用10x帮我测试
+
+请使用解析工具查看toy.mid前5秒的所有弯音轮和调制轮事件
+
+你先转换前5秒，然后自行检查输出的gbas是否有弯音轮或者调制轮参数
+
+不可能，toy包含大量调制轮，你解析错误
+
+midi_converter.cpp继续改进，目前弯音轮转换不正确，数值没有正确获取，请修复。
+
+好，我又改了声音引擎，新增弯音轮参数，请参考sound_engine8.gbas更新其他部分，把其他部分复制过来，然后可变的音乐数据部分参考这里：
+proc music_data '先定时，再演奏，一次性演奏4个通道
+	call eatSound_Timer,1 '第一个音从tick=1开始。
+	
+	call beep,1,60,20,1,-100 '格式：beep,通道，音高，音量，波形，弯音轮
+	call beep,2,72,34,2,100 '弯音轮可正可负，直接映射MIDI弯音轮数值
+	call beep,3,76,40,3,45
+	call beep,4,79,50,1,0 '音量最大为63	
+	
+	call eatSound_Timer,30	
+	call beep,4,79,50,1,0
+	call beep,1,79,50,0,0
+	
+	call eatSound_Timer,60
+	call beep,4,79,50,1,0
+
+	
+endproc
+
+
+很好，但是没有转换midi的noteoff到gbas，请将音符关闭转换到gbas的音量为0
+
+好，我又改了声音引擎，格式是先eatSound_Timer，tick，然后4个通道同时发声beep，
+请参考sound_engine8.gbas更新其他部分，把其他部分复制过来，然后可变的音乐数据部分参考这里：
+
+proc music_data '先定时，再演奏，一次性演奏4个通道
+	call eatSound_Timer,1	
+	call beep,1,60,20,1 '第一个音从tick=1开始。
+	call beep,2,72,34,2 '
+	call beep,3,76,40,3
+	call beep,4,79,50,1 '音量最大为63	
+	
+	call eatSound_Timer,30	
+	call beep,4,79,50,1
+	call beep,1,79,50,0
+	
+	call eatSound_Timer,60
+	call beep,4,79,50,1
+
+	
+endproc
+
+
+
+call eatSound_Timer,1
+	
+	call beep,1,60,20,1 '第一个音从tick=1开始。
+	call beep,2,72,34,2 '
+	call beep,3,76,40,3
+	call beep,4,79,50,1 '音量最大为63	
+	set SOUND_TIMER, 1 			'播放完成之后定时器重置，
+	
+注意格式，每一个tick都是这个格式，中间beep是可变部分
+
+midi_converter.cpp继续改进，放弃本程序现有转换输出文本，参考sound_engine7.gbas，
+将输出的音符数据放置在末尾的部分，注意这些数据只是演示：
+proc music_data
+	call eatSound,1,60,20,1,1 '第一个音从tick=1开始。
+	call eatSound,2,72,34,2,20 '
+	call eatSound,3,76,40,3,30
+	call eatSound,4,79,50,1,40 '音量最大为63
+	call eatSound,4,79,50,1,180
+endproc
+程序其他部分完全抄sound_engine7.gbas，不要有任何不同
+
+
+
+libsmf已经删除，你在干什么？目前使用midifile解析midi
+
+本环境是bash，可以使用pacman静默安装缺失的库。
+
+注意只转换有音符的4个通道。toy.mid是演示音乐。
+
+帮我制作一个cpp程序，能将midi转换为以下格式的文本，'号后面的注释可以不写入文本。
+proc sound_engine
+	call eatSound,1,72,40,1,1 '第一个音从tick=1开始。
+	call eatSound,2,76,50,2,20 
+	'eatSound,ch=通道数1到4,note=MIDI音符索引12到105,vol=音量0到63,wave=波形0到3,tick=当前音符时间轴，
+	'1个tick=1/60秒
+	call eatSound,3,79,60,3,40 '支持4种内置波形，0噪音，1三角波，2方波，3锯齿波，每个通道可以自由使用这4个波形。
+	call eatSound,4,60,64,1,60 '音量最大为63
+	
+endproc
+
+注意本声音引擎最高支持C0=12到A7=105(MIDI音符索引值)。
+你需要将MIDI中的音高提取为它的MIDI音符索引值，
+将MIDI中的音量和力度同时转换为它的音量值，
+将MIDI程序80转换为它的方波，将MIDI程序127转换为噪音。
+其他乐器映射到三角波。
