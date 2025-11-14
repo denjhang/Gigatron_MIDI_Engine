@@ -440,10 +440,10 @@ endproc
 
 
 proc music_data '先定时，再演奏，一次性演奏4个通道
-start:
-	tick_sum=0
-	call eatSound_Timer,75
 
+	tick_sum=70
+	call eatSound_Timer,75
+start:
 	call beep,1,67,63,1,0
 	call beep,2,43,63,1,0
 	call eatSound_Timer,81
@@ -4079,5 +4079,6 @@ start:
 	call beep,2,67,0,1,0
 	call beep,3,57,0,1,0
 	sound off
+	tick_sum=71
 	goto start
 endproc

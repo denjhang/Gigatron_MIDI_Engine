@@ -303,35 +303,35 @@ _fix                              PUSH                                          
 
                                   LDW                          _oct
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0001 0              ; if oct==0
+                                  JumpFalse                    _endif_0x0001 1712           ; if oct==0
 
                                   CALLI                        _fix_oct0                    ; call fix_oct0
 
 _endif_0x0001                     LDW                          _oct
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0002 1              ; if oct==1
+                                  JumpFalse                    _endif_0x0002 1713           ; if oct==1
 
                                   CALLI                        _fix_oct1                    ; call fix_oct1
 
 _endif_0x0002                     LDW                          _oct
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0003 2              ; if oct==2
+                                  JumpFalse                    _endif_0x0003 1714           ; if oct==2
 
                                   CALLI                        _fix_oct2                    ; call fix_oct2
 
 _endif_0x0003                     LDW                          _oct
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0004 3              ; if oct==3
+                                  JumpFalse                    _endif_0x0004 1715           ; if oct==3
 
                                   CALLI                        _fix_oct3                    ; call fix_oct3
 
 _endif_0x0004                     LDW                          _oct
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0005 4              ; if oct==4
+                                  JumpFalse                    _endif_0x0005 1716           ; if oct==4
 
                                   CALLI                        _fix_oct4                    ; call fix_oct4
 
@@ -339,21 +339,21 @@ _endif_0x0005                     LDW                          _oct
                                   XORI                         5
                                   CALLI                        _page_0x0300
 _page_0x0300                      CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0006 5              ; if oct==5
+                                  JumpFalse                    _endif_0x0006 1717           ; if oct==5
 
                                   CALLI                        _fix_oct5                    ; call fix_oct5
 
 _endif_0x0006                     LDW                          _oct
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0007 6              ; if oct==6
+                                  JumpFalse                    _endif_0x0007 1718           ; if oct==6
 
                                   CALLI                        _fix_oct6                    ; call fix_oct6
 
 _endif_0x0007                     LDW                          _oct
                                   XORI                         7
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0008 7              ; if oct==7
+                                  JumpFalse                    _endif_0x0008 1719           ; if oct==7
 
                                   CALLI                        _fix_oct6                    ; call fix_oct6
 
@@ -368,11 +368,11 @@ _fix_oct0                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0009 8              ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0009 1720           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000a 9              ; if index == 0
+                                  JumpFalse                    _endif_0x000a 1721           ; if index == 0
 
                                   LDI                          67
                                   STW                          _fix_num                     ; fix_num=67
@@ -380,7 +380,7 @@ _fix_oct0                         PUSH                                          
 _endif_0x000a                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000b 10             ; if index == 1
+                                  JumpFalse                    _endif_0x000b 1722           ; if index == 1
 
                                   LDI                          74
                                   STW                          _fix_num                     ; fix_num=74
@@ -388,7 +388,7 @@ _endif_0x000a                     LDW                          _index
 _endif_0x000b                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000c 11             ; if index == 2
+                                  JumpFalse                    _endif_0x000c 1723           ; if index == 2
 
                                   LDI                          86
                                   STW                          _fix_num                     ; fix_num=86
@@ -396,7 +396,7 @@ _endif_0x000b                     LDW                          _index
 _endif_0x000c                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000d 12             ; if index == 3
+                                  JumpFalse                    _endif_0x000d 1724           ; if index == 3
 
                                   LDI                          86
                                   STW                          _fix_num                     ; fix_num=86
@@ -404,7 +404,7 @@ _endif_0x000c                     LDW                          _index
 _endif_0x000d                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000e 13             ; if index == 4
+                                  JumpFalse                    _endif_0x000e 1725           ; if index == 4
 
                                   LDI                          104
                                   STW                          _fix_num                     ; fix_num=104
@@ -412,7 +412,7 @@ _endif_0x000d                     LDW                          _index
 _endif_0x000e                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x000f 14             ; if index == 5
+                                  JumpFalse                    _endif_0x000f 1726           ; if index == 5
 
                                   LDI                          0
                                   STW                          _fix_num                     ; fix_num=0
@@ -420,7 +420,7 @@ _endif_0x000e                     LDW                          _index
 _endif_0x000f                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0010 15             ; if index == 6
+                                  JumpFalse                    _endif_0x0010 1727           ; if index == 6
 
                                   LDI                          3
                                   STW                          _fix_num                     ; fix_num=3
@@ -436,11 +436,11 @@ _fix_oct1                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0011 16             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0011 1728           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0012 17             ; if index == 0
+                                  JumpFalse                    _endif_0x0012 1729           ; if index == 0
 
                                   LDI                          13
                                   STW                          _fix_num                     ; fix_num=13
@@ -448,7 +448,7 @@ _fix_oct1                         PUSH                                          
 _endif_0x0012                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0013 18             ; if index == 1
+                                  JumpFalse                    _endif_0x0013 1730           ; if index == 1
 
                                   LDI                          34
                                   STW                          _fix_num                     ; fix_num=34
@@ -457,7 +457,7 @@ _endif_0x0013                     LDW                          _index
                                   XORI                         2
                                   CALLI                        _page_0x0400
 _page_0x0400                      CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0014 19             ; if index == 2
+                                  JumpFalse                    _endif_0x0014 1731           ; if index == 2
 
                                   LDI                          44
                                   STW                          _fix_num                     ; fix_num=44
@@ -465,7 +465,7 @@ _page_0x0400                      CALLI                        convertEqOp
 _endif_0x0014                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0015 20             ; if index == 3
+                                  JumpFalse                    _endif_0x0015 1732           ; if index == 3
 
                                   LDI                          63
                                   STW                          _fix_num                     ; fix_num=63
@@ -473,7 +473,7 @@ _endif_0x0014                     LDW                          _index
 _endif_0x0015                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0016 21             ; if index == 4
+                                  JumpFalse                    _endif_0x0016 1733           ; if index == 4
 
                                   LDI                          79
                                   STW                          _fix_num                     ; fix_num=79
@@ -481,7 +481,7 @@ _endif_0x0015                     LDW                          _index
 _endif_0x0016                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0017 22             ; if index == 5
+                                  JumpFalse                    _endif_0x0017 1734           ; if index == 5
 
                                   LDI                          103
                                   STW                          _fix_num                     ; fix_num=103
@@ -489,7 +489,7 @@ _endif_0x0016                     LDW                          _index
 _endif_0x0017                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0018 23             ; if index == 6
+                                  JumpFalse                    _endif_0x0018 1735           ; if index == 6
 
                                   LDI                          5
                                   STW                          _fix_num                     ; fix_num=5
@@ -505,11 +505,11 @@ _fix_oct2                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0019 24             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0019 1736           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001a 25             ; if index == 0
+                                  JumpFalse                    _endif_0x001a 1737           ; if index == 0
 
                                   LDI                          16
                                   STW                          _fix_num                     ; fix_num=16
@@ -517,7 +517,7 @@ _fix_oct2                         PUSH                                          
 _endif_0x001a                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001b 26             ; if index == 1
+                                  JumpFalse                    _endif_0x001b 1738           ; if index == 1
 
                                   LDI                          58
                                   STW                          _fix_num                     ; fix_num=58
@@ -525,7 +525,7 @@ _endif_0x001a                     LDW                          _index
 _endif_0x001b                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001c 27             ; if index == 2
+                                  JumpFalse                    _endif_0x001c 1739           ; if index == 2
 
                                   LDI                          91
                                   STW                          _fix_num                     ; fix_num=91
@@ -533,7 +533,7 @@ _endif_0x001b                     LDW                          _index
 _endif_0x001c                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001d 28             ; if index == 3
+                                  JumpFalse                    _endif_0x001d 1740           ; if index == 3
 
                                   LDI                          115
                                   STW                          _fix_num                     ; fix_num=115
@@ -541,7 +541,7 @@ _endif_0x001c                     LDW                          _index
 _endif_0x001d                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001e 29             ; if index == 4
+                                  JumpFalse                    _endif_0x001e 1741           ; if index == 4
 
                                   LDI                          38
                                   STW                          _fix_num                     ; fix_num=38
@@ -549,7 +549,7 @@ _endif_0x001d                     LDW                          _index
 _endif_0x001e                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x001f 30             ; if index == 5
+                                  JumpFalse                    _endif_0x001f 1742           ; if index == 5
 
                                   LDI                          87
                                   STW                          _fix_num                     ; fix_num=87
@@ -557,7 +557,7 @@ _endif_0x001e                     LDW                          _index
 _endif_0x001f                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0020 31             ; if index == 6
+                                  JumpFalse                    _endif_0x0020 1743           ; if index == 6
 
                                   LDI                          2
                                   STW                          _fix_num                     ; fix_num=2
@@ -574,11 +574,11 @@ _fix_oct3                         PUSH                                          
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
                                   CALLI                        _page_0x0500
-_page_0x0500                      JumpFalse                    _endif_0x0021 32             ; if (keystat==0 AND demo ==1)
+_page_0x0500                      JumpFalse                    _endif_0x0021 1744           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0022 33             ; if index == 0
+                                  JumpFalse                    _endif_0x0022 1745           ; if index == 0
 
                                   LDI                          43
                                   STW                          _fix_num                     ; fix_num=43
@@ -586,7 +586,7 @@ _page_0x0500                      JumpFalse                    _endif_0x0021 32 
 _endif_0x0022                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0023 34             ; if index == 1
+                                  JumpFalse                    _endif_0x0023 1746           ; if index == 1
 
                                   LDI                          102
                                   STW                          _fix_num                     ; fix_num=102
@@ -594,7 +594,7 @@ _endif_0x0022                     LDW                          _index
 _endif_0x0023                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0024 35             ; if index == 2
+                                  JumpFalse                    _endif_0x0024 1747           ; if index == 2
 
                                   LDI                          56
                                   STW                          _fix_num                     ; fix_num=56
@@ -602,7 +602,7 @@ _endif_0x0023                     LDW                          _index
 _endif_0x0024                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0025 36             ; if index == 3
+                                  JumpFalse                    _endif_0x0025 1748           ; if index == 3
 
                                   LDI                          95
                                   STW                          _fix_num                     ; fix_num=95
@@ -610,7 +610,7 @@ _endif_0x0024                     LDW                          _index
 _endif_0x0025                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0026 37             ; if index == 4
+                                  JumpFalse                    _endif_0x0026 1749           ; if index == 4
 
                                   LDI                          54
                                   STW                          _fix_num                     ; fix_num=54
@@ -618,7 +618,7 @@ _endif_0x0025                     LDW                          _index
 _endif_0x0026                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0027 38             ; if index == 5
+                                  JumpFalse                    _endif_0x0027 1750           ; if index == 5
 
                                   LDI                          27
                                   STW                          _fix_num                     ; fix_num=27
@@ -626,7 +626,7 @@ _endif_0x0026                     LDW                          _index
 _endif_0x0027                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0028 39             ; if index == 6
+                                  JumpFalse                    _endif_0x0028 1751           ; if index == 6
 
                                   LDI                          20
                                   STW                          _fix_num                     ; fix_num=20
@@ -642,11 +642,11 @@ _fix_oct4                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0029 40             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0029 1752           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002a 41             ; if index == 0
+                                  JumpFalse                    _endif_0x002a 1753           ; if index == 0
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -654,7 +654,7 @@ _fix_oct4                         PUSH                                          
 _endif_0x002a                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002b 42             ; if index == 1
+                                  JumpFalse                    _endif_0x002b 1754           ; if index == 1
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -662,7 +662,7 @@ _endif_0x002a                     LDW                          _index
 _endif_0x002b                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002c 43             ; if index == 2
+                                  JumpFalse                    _endif_0x002c 1755           ; if index == 2
 
                                   LDI                          91
                                   STW                          _fix_num                     ; fix_num=91
@@ -670,7 +670,7 @@ _endif_0x002b                     LDW                          _index
 _endif_0x002c                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002d 44             ; if index == 3
+                                  JumpFalse                    _endif_0x002d 1756           ; if index == 3
 
                                   LDI                          62
                                   STW                          _fix_num                     ; fix_num=62
@@ -678,7 +678,7 @@ _endif_0x002c                     LDW                          _index
 _endif_0x002d                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002e 45             ; if index == 4
+                                  JumpFalse                    _endif_0x002e 1757           ; if index == 4
 
                                   LDI                          113
                                   STW                          _fix_num                     ; fix_num=113
@@ -686,7 +686,7 @@ _endif_0x002d                     LDW                          _index
 _endif_0x002e                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x002f 46             ; if index == 5
+                                  JumpFalse                    _endif_0x002f 1758           ; if index == 5
 
                                   LDI                          56
                                   STW                          _fix_num                     ; fix_num=56
@@ -695,7 +695,7 @@ _endif_0x002f                     LDW                          _index
                                   XORI                         6
                                   CALLI                        _page_0x0600
 _page_0x0600                      CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0030 47             ; if index == 6
+                                  JumpFalse                    _endif_0x0030 1759           ; if index == 6
 
                                   LDI                          42
                                   STW                          _fix_num                     ; fix_num=42
@@ -711,11 +711,11 @@ _fix_oct5                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0031 48             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0031 1760           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0032 49             ; if index == 0
+                                  JumpFalse                    _endif_0x0032 1761           ; if index == 0
 
                                   LDI                          23
                                   STW                          _fix_num                     ; fix_num=23
@@ -723,7 +723,7 @@ _fix_oct5                         PUSH                                          
 _endif_0x0032                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0033 50             ; if index == 1
+                                  JumpFalse                    _endif_0x0033 1762           ; if index == 1
 
                                   LDI                          51
                                   STW                          _fix_num                     ; fix_num=51
@@ -731,7 +731,7 @@ _endif_0x0032                     LDW                          _index
 _endif_0x0033                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0034 51             ; if index == 2
+                                  JumpFalse                    _endif_0x0034 1763           ; if index == 2
 
                                   LDI                          91
                                   STW                          _fix_num                     ; fix_num=91
@@ -739,7 +739,7 @@ _endif_0x0033                     LDW                          _index
 _endif_0x0034                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0035 52             ; if index == 3
+                                  JumpFalse                    _endif_0x0035 1764           ; if index == 3
 
                                   LDI                          120
                                   STW                          _fix_num                     ; fix_num=120
@@ -747,7 +747,7 @@ _endif_0x0034                     LDW                          _index
 _endif_0x0035                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0036 53             ; if index == 4
+                                  JumpFalse                    _endif_0x0036 1765           ; if index == 4
 
                                   LDI                          103
                                   STW                          _fix_num                     ; fix_num=103
@@ -755,7 +755,7 @@ _endif_0x0035                     LDW                          _index
 _endif_0x0036                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0037 54             ; if index == 5
+                                  JumpFalse                    _endif_0x0037 1766           ; if index == 5
 
                                   LDI                          136
                                   STW                          _fix_num                     ; fix_num=136
@@ -763,7 +763,7 @@ _endif_0x0036                     LDW                          _index
 _endif_0x0037                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0038 55             ; if index == 6
+                                  JumpFalse                    _endif_0x0038 1767           ; if index == 6
 
                                   LDI                          65
                                   STW                          _fix_num                     ; fix_num=65
@@ -779,11 +779,11 @@ _fix_oct6                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0039 56             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0039 1768           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x003a 57             ; if index == 0
+                                  JumpFalse                    _endif_0x003a 1769           ; if index == 0
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -791,7 +791,7 @@ _fix_oct6                         PUSH                                          
 _endif_0x003a                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x003b 58             ; if index == 1
+                                  JumpFalse                    _endif_0x003b 1770           ; if index == 1
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -799,7 +799,7 @@ _endif_0x003a                     LDW                          _index
 _endif_0x003b                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x003c 59             ; if index == 2
+                                  JumpFalse                    _endif_0x003c 1771           ; if index == 2
 
                                   LDI                          91
                                   STW                          _fix_num                     ; fix_num=91
@@ -807,7 +807,7 @@ _endif_0x003b                     LDW                          _index
 _endif_0x003c                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x003d 60             ; if index == 3
+                                  JumpFalse                    _endif_0x003d 1772           ; if index == 3
 
                                   LDI                          62
                                   STW                          _fix_num                     ; fix_num=62
@@ -816,7 +816,7 @@ _endif_0x003d                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
                                   CALLI                        _page_0x08a0
-_page_0x08a0                      JumpFalse                    _endif_0x003e 61             ; if index == 4
+_page_0x08a0                      JumpFalse                    _endif_0x003e 1773           ; if index == 4
 
                                   LDI                          113
                                   STW                          _fix_num                     ; fix_num=113
@@ -824,7 +824,7 @@ _page_0x08a0                      JumpFalse                    _endif_0x003e 61 
 _endif_0x003e                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x003f 62             ; if index == 5
+                                  JumpFalse                    _endif_0x003f 1774           ; if index == 5
 
                                   LDI                          56
                                   STW                          _fix_num                     ; fix_num=56
@@ -832,7 +832,7 @@ _endif_0x003e                     LDW                          _index
 _endif_0x003f                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0040 63             ; if index == 6
+                                  JumpFalse                    _endif_0x0040 1775           ; if index == 6
 
                                   LDI                          42
                                   STW                          _fix_num                     ; fix_num=42
@@ -848,11 +848,11 @@ _fix_oct7                         PUSH                                          
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   ANDW                         0xe8
-                                  JumpFalse                    _endif_0x0041 64             ; if (keystat==0 AND demo ==1)
+                                  JumpFalse                    _endif_0x0041 1776           ; if (keystat==0 AND demo ==1)
 
                                   LDW                          _index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0042 65             ; if index == 0
+                                  JumpFalse                    _endif_0x0042 1777           ; if index == 0
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -861,7 +861,7 @@ _endif_0x0042                     LDW                          _index
                                   XORI                         1
                                   CALLI                        convertEqOp
                                   CALLI                        _page_0x09a0
-_page_0x09a0                      JumpFalse                    _endif_0x0043 66             ; if index == 1
+_page_0x09a0                      JumpFalse                    _endif_0x0043 1778           ; if index == 1
 
                                   LDI                          88
                                   STW                          _fix_num                     ; fix_num=88
@@ -869,7 +869,7 @@ _page_0x09a0                      JumpFalse                    _endif_0x0043 66 
 _endif_0x0043                     LDW                          _index
                                   XORI                         2
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0044 67             ; if index == 2
+                                  JumpFalse                    _endif_0x0044 1779           ; if index == 2
 
                                   LDI                          91
                                   STW                          _fix_num                     ; fix_num=91
@@ -877,7 +877,7 @@ _endif_0x0043                     LDW                          _index
 _endif_0x0044                     LDW                          _index
                                   XORI                         3
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0045 68             ; if index == 3
+                                  JumpFalse                    _endif_0x0045 1780           ; if index == 3
 
                                   LDI                          62
                                   STW                          _fix_num                     ; fix_num=62
@@ -885,7 +885,7 @@ _endif_0x0044                     LDW                          _index
 _endif_0x0045                     LDW                          _index
                                   XORI                         4
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0046 69             ; if index == 4
+                                  JumpFalse                    _endif_0x0046 1781           ; if index == 4
 
                                   LDI                          113
                                   STW                          _fix_num                     ; fix_num=113
@@ -893,7 +893,7 @@ _endif_0x0045                     LDW                          _index
 _endif_0x0046                     LDW                          _index
                                   XORI                         5
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0047 70             ; if index == 5
+                                  JumpFalse                    _endif_0x0047 1782           ; if index == 5
 
                                   LDI                          56
                                   STW                          _fix_num                     ; fix_num=56
@@ -901,7 +901,7 @@ _endif_0x0046                     LDW                          _index
 _endif_0x0047                     LDW                          _index
                                   XORI                         6
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0048 71             ; if index == 6
+                                  JumpFalse                    _endif_0x0048 1783           ; if index == 6
 
                                   LDI                          42
                                   CALLI                        _page_0x0aa0
@@ -930,7 +930,7 @@ _handleInput                      PUSH
 
                                   LDW                          _button
                                   ANDI                         0x08
-                                  JumpFalse                    _endif_0x0049 72             ; if (button AND &h08)
+                                  JumpFalse                    _endif_0x0049 1784           ; if (button AND &h08)
 
                                   LDI                          1
                                   STW                          _keystat                     ; keystat=1
@@ -941,7 +941,7 @@ _handleInput                      PUSH
 
 _endif_0x0049                     LDW                          _button
                                   ANDI                         0x04
-                                  JumpFalse                    _endif_0x004a 73             ; if (button AND &h04)
+                                  JumpFalse                    _endif_0x004a 1785           ; if (button AND &h04)
 
                                   LDI                          1
                                   STW                          _keystat                     ; keystat=1
@@ -952,12 +952,12 @@ _endif_0x0049                     LDW                          _button
 
 _endif_0x004a                     LDW                          _button
                                   ANDI                         0x02
-                                  JumpFalse                    _endif_0x004b 74             ; if (button AND &h02)
+                                  JumpFalse                    _endif_0x004b 1786           ; if (button AND &h02)
 
                                   LDW                          _key_index
                                   CALLI                        convertGeOp
                                   CALLI                        _page_0x0ba0
-_page_0x0ba0                      JumpFalse                    _endif_0x004c 75             ; if key_index>=0
+_page_0x0ba0                      JumpFalse                    _endif_0x004c 1787           ; if key_index>=0
 
                                   LDW                          _key_index
                                   SUBI                         1
@@ -966,14 +966,14 @@ _page_0x0ba0                      JumpFalse                    _endif_0x004c 75 
                                   LDWI                         -1
                                   XORW                         _key_index
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x004d 76             ; if key_index==-1
+                                  JumpFalse                    _endif_0x004d 1788           ; if key_index==-1
 
                                   LDI                          6
                                   STW                          _key_index                   ; key_index=6
 
                                   LDW                          _oct
                                   CALLI                        convertGtOp
-                                  JumpFalse                    _if_0x004e 77
+                                  JumpFalse                    _if_0x004e 1789
                                   LDW                          _oct
                                   SUBI                         1
                                   STW                          _oct                         ; if oct>0 then oct=oct-1
@@ -983,12 +983,12 @@ _endif_0x004c                     LDI                          0
 
 _endif_0x004b                     LDW                          _button
                                   ANDI                         0x01
-                                  JumpFalse                    _endif_0x004f 78             ; if (button AND &h01)
+                                  JumpFalse                    _endif_0x004f 1790           ; if (button AND &h01)
 
                                   LDW                          _key_index
                                   SUBI                         6
                                   CALLI                        convertLeOp
-                                  JumpFalse                    _endif_0x0050 79             ; if key_index<=6
+                                  JumpFalse                    _endif_0x0050 1791           ; if key_index<=6
 
                                   LDW                          _key_index
                                   ADDI                         1
@@ -997,7 +997,7 @@ _endif_0x004b                     LDW                          _button
                                   LDW                          _key_index
                                   XORI                         7
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0051 80             ; if key_index==7
+                                  JumpFalse                    _endif_0x0051 1792           ; if key_index==7
 
                                   CALLI                        _page_0x0ca0
 _page_0x0ca0                      LDI                          0
@@ -1006,7 +1006,7 @@ _page_0x0ca0                      LDI                          0
                                   LDW                          _oct
                                   SUBI                         7
                                   CALLI                        convertLtOp
-                                  JumpFalse                    _if_0x0052 81
+                                  JumpFalse                    _if_0x0052 1793
                                   LDW                          _oct
                                   ADDI                         1
                                   STW                          _oct                         ; if oct<7 then oct=oct+1
@@ -1016,16 +1016,16 @@ _endif_0x0050                     LDI                          0
 
 _endif_0x004f                     LDW                          _button
                                   ANDI                         0x00
-                                  JumpFalse                    _endif_0x0053 82             ; if (button AND &h00)
+                                  JumpFalse                    _endif_0x0053 1794           ; if (button AND &h00)
 
 _endif_0x0053                     LDW                          _button
                                   ANDI                         0x80
-                                  JumpFalse                    _endif_0x0054 83             ; if (button AND &h80)
+                                  JumpFalse                    _endif_0x0054 1795           ; if (button AND &h80)
 
                                   LDW                          _oct
                                   SUBI                         7
                                   CALLI                        convertLtOp
-                                  JumpFalse                    _if_0x0055 84
+                                  JumpFalse                    _if_0x0055 1796
                                   LDW                          _oct
                                   ADDI                         1
                                   STW                          _oct                         ; if oct<7 then oct=oct+1
@@ -1035,11 +1035,11 @@ _if_0x0055                        LDI                          0
 
 _endif_0x0054                     LDW                          _button
                                   ANDI                         0x40
-                                  JumpFalse                    _endif_0x0056 85             ; if (button AND &h40)
+                                  JumpFalse                    _endif_0x0056 1797           ; if (button AND &h40)
 
                                   LDW                          _oct
                                   CALLI                        convertGtOp
-                                  JumpFalse                    _if_0x0057 86
+                                  JumpFalse                    _if_0x0057 1798
                                   LDW                          _oct
                                   CALLI                        _page_0x0da0
 _page_0x0da0                      SUBI                         1
@@ -1054,11 +1054,11 @@ _demo_key                         PUSH                                          
 
                                   LDW                          _button
                                   ANDI                         0x10
-                                  JumpFalse                    _endif_0x0058 87             ; if (button AND &h10)
+                                  JumpFalse                    _endif_0x0058 1799           ; if (button AND &h10)
 
                                   LDW                          _demo
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x0059 88             ; if demo==0
+                                  JumpFalse                    _endif_0x0059 1800           ; if demo==0
 
                                   LDI                          1
                                   STW                          _demo                        ; demo = 1
@@ -1068,7 +1068,7 @@ _demo_key                         PUSH                                          
 _endif_0x0059                     LDW                          _demo
                                   XORI                         1
                                   CALLI                        convertEqOp
-                                  JumpFalse                    _endif_0x005a 89             ; if demo==1
+                                  JumpFalse                    _endif_0x005a 1801           ; if demo==1
 
                                   LDI                          0
                                   STW                          _demo                        ; demo = 0
