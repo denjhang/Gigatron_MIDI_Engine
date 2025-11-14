@@ -1,0 +1,1702 @@
+_startAddress_                    EQU                          0x0200
+
+; Internal Variables
+serialRawPrev                     EQU                          0x0081
+frameCountPrev                    EQU                          0x00d6
+register0                         EQU                          0x0082
+register1                         EQU                          register0 + 0x02
+register2                         EQU                          register0 + 0x04
+register3                         EQU                          register0 + 0x06
+register4                         EQU                          register0 + 0x08
+register5                         EQU                          register0 + 0x0A
+register6                         EQU                          register0 + 0x0C
+register7                         EQU                          register0 + 0x0E
+register8                         EQU                          register0 + 0x10
+register9                         EQU                          register0 + 0x12
+register10                        EQU                          register0 + 0x14
+register11                        EQU                          register0 + 0x16
+register12                        EQU                          register0 + 0x18
+register13                        EQU                          register0 + 0x1A
+register14                        EQU                          register0 + 0x1C
+register15                        EQU                          register0 + 0x1E
+fgbgColour                        EQU                          register0 + 0x20
+cursorXY                          EQU                          register0 + 0x22
+midiStream                        EQU                          register0 + 0x24
+midiDelay                         EQU                          register0 + 0x26
+miscFlags                         EQU                          register0 + 0x28
+register16                        EQU                          register0 + 0x2A
+timerTick                         EQU                          register0 + 0x2C
+timerJiff                         EQU                          register0 + 0x2E
+
+; Internal Constants
+MISC_WAIT_VBLANK_BIT              EQU                          0x01
+MISC_ENABLE_SCROLL_BIT            EQU                          0x02
+MISC_ON_BOTTOM_ROW_BIT            EQU                          0x04
+MISC_DISABLE_CLIP_BIT             EQU                          0x08
+MISC_ENABLE_FNT4X6_BIT            EQU                          0x10
+MISC_WAIT_VBLANK_MSK              EQU                          0xfe
+MISC_ENABLE_SCROLL_MSK            EQU                          0xfd
+MISC_ON_BOTTOM_ROW_MSK            EQU                          0xfb
+MISC_DISABLE_CLIP_MSK             EQU                          0xf7
+MISC_ENABLE_FNT4X6_MSK            EQU                          0xef
+
+; Internal Buffers
+regsWorkArea                      EQU                          0x0000
+textWorkArea                      EQU                          0x7fa0
+
+; Includes
+%includePath                      "../runtime"
+%include                          util.i
+%include                          gigatron.i
+%include                          macros_ROMv5a.i
+
+; Labels
+_entryPoint_                      EQU                          0x0200
+_handleInput                      EQU                          0x0aa4
+_repeat_0x0000                    EQU                          0x0248
+_eatSound                         EQU                          0x025e
+_fix                              EQU                          0x02a4
+_endif_0x0001                     EQU                          0x02b3
+_endif_0x0002                     EQU                          0x02c3
+_endif_0x0003                     EQU                          0x02d3
+_endif_0x0004                     EQU                          0x02e3
+_endif_0x0005                     EQU                          0x02f3
+_endif_0x0006                     EQU                          0x030c
+_endif_0x0007                     EQU                          0x031c
+_endif_0x0008                     EQU                          0x032c
+_fix_oct0                         EQU                          0x032e
+_endif_0x000a                     EQU                          0x0354
+_endif_0x000b                     EQU                          0x0365
+_endif_0x000c                     EQU                          0x0376
+_endif_0x000d                     EQU                          0x0387
+_endif_0x000e                     EQU                          0x0398
+_endif_0x000f                     EQU                          0x03a9
+_endif_0x0010                     EQU                          0x03ba
+_endif_0x0009                     EQU                          0x03ba
+_fix_oct1                         EQU                          0x03bc
+_endif_0x0012                     EQU                          0x03e2
+_endif_0x0013                     EQU                          0x03f3
+_endif_0x0014                     EQU                          0x040d
+_endif_0x0015                     EQU                          0x041e
+_endif_0x0016                     EQU                          0x042f
+_endif_0x0017                     EQU                          0x0440
+_endif_0x0018                     EQU                          0x0451
+_endif_0x0011                     EQU                          0x0451
+_fix_oct2                         EQU                          0x0453
+_endif_0x001a                     EQU                          0x0479
+_endif_0x001b                     EQU                          0x048a
+_endif_0x001c                     EQU                          0x049b
+_endif_0x001d                     EQU                          0x04ac
+_endif_0x001e                     EQU                          0x04bd
+_endif_0x001f                     EQU                          0x04ce
+_endif_0x0020                     EQU                          0x04df
+_endif_0x0019                     EQU                          0x04df
+_fix_oct3                         EQU                          0x04e1
+_endif_0x0022                     EQU                          0x0515
+_endif_0x0023                     EQU                          0x0526
+_endif_0x0024                     EQU                          0x0537
+_endif_0x0025                     EQU                          0x0548
+_endif_0x0026                     EQU                          0x0559
+_endif_0x0027                     EQU                          0x056a
+_endif_0x0028                     EQU                          0x057b
+_endif_0x0021                     EQU                          0x057b
+_fix_oct4                         EQU                          0x057d
+_endif_0x002a                     EQU                          0x05a3
+_endif_0x002b                     EQU                          0x05b4
+_endif_0x002c                     EQU                          0x05c5
+_endif_0x002d                     EQU                          0x05d6
+_endif_0x002e                     EQU                          0x05e7
+_endif_0x002f                     EQU                          0x05f8
+_endif_0x0030                     EQU                          0x060d
+_endif_0x0029                     EQU                          0x060d
+_fix_oct5                         EQU                          0x060f
+_endif_0x0032                     EQU                          0x0635
+_endif_0x0033                     EQU                          0x0646
+_endif_0x0034                     EQU                          0x0657
+_endif_0x0035                     EQU                          0x0668
+_endif_0x0036                     EQU                          0x0679
+_endif_0x0037                     EQU                          0x068a
+_endif_0x0038                     EQU                          0x069b
+_endif_0x0031                     EQU                          0x069b
+_fix_oct6                         EQU                          0x069d
+_endif_0x003a                     EQU                          0x06c3
+_endif_0x003b                     EQU                          0x06d4
+_endif_0x003c                     EQU                          0x06e5
+_endif_0x003d                     EQU                          0x06f6
+_endif_0x003e                     EQU                          0x08aa
+_endif_0x003f                     EQU                          0x08bb
+_endif_0x0040                     EQU                          0x08cc
+_endif_0x0039                     EQU                          0x08cc
+_fix_oct7                         EQU                          0x08ce
+_endif_0x0042                     EQU                          0x08f4
+_endif_0x0043                     EQU                          0x09aa
+_endif_0x0044                     EQU                          0x09bb
+_endif_0x0045                     EQU                          0x09cc
+_endif_0x0046                     EQU                          0x09dd
+_endif_0x0047                     EQU                          0x09ee
+_endif_0x0048                     EQU                          0x0aa2
+_endif_0x0041                     EQU                          0x0aa2
+_endif_0x0049                     EQU                          0x0ad9
+_endif_0x004a                     EQU                          0x0aed
+_if_0x004e                        EQU                          0x0bcf
+_endif_0x004d                     EQU                          0x0bcf
+_endif_0x004c                     EQU                          0x0bcf
+_endif_0x004b                     EQU                          0x0bd3
+_if_0x0052                        EQU                          0x0cb7
+_endif_0x0051                     EQU                          0x0cb7
+_endif_0x0050                     EQU                          0x0cb7
+_endif_0x004f                     EQU                          0x0cbb
+_endif_0x0053                     EQU                          0x0cc5
+_if_0x0055                        EQU                          0x0ce2
+_endif_0x0054                     EQU                          0x0ce6
+_if_0x0057                        EQU                          0x0da4
+_endif_0x0056                     EQU                          0x0da8
+_demo_key                         EQU                          0x0daa
+_endif_0x0059                     EQU                          0x0dc6
+_endif_0x005a                     EQU                          0x0dd9
+_endif_0x0058                     EQU                          0x0dd9
+_page_0x0300                      EQU                          0x0300
+_page_0x0400                      EQU                          0x0400
+_page_0x0500                      EQU                          0x0500
+_page_0x0600                      EQU                          0x0600
+_page_0x08a0                      EQU                          0x08a0
+_page_0x09a0                      EQU                          0x09a0
+_page_0x0aa0                      EQU                          0x0aa0
+_page_0x0ba0                      EQU                          0x0ba0
+_page_0x0ca0                      EQU                          0x0ca0
+_page_0x0da0                      EQU                          0x0da0
+
+; Constants
+
+; Global Variables
+_index                            EQU                          0x0030
+_fix_num                          EQU                          0x0032
+_oct                              EQU                          0x0034
+_button                           EQU                          0x0036
+_keystat                          EQU                          0x0038
+_demo                             EQU                          0x003a
+_key_index                        EQU                          0x003c
+
+; Local Variables
+_eatSound_n                       EQU                          0x00c4
+
+; Arrays
+_enotes                           EQU                          0x7dcf
+_enotes                           DB                           0x3d 0x3f 0x41 0x42 0x44 0x46 0x48 0x48 
+
+; Strings
+
+; Constant Strings
+_str_0x7dd7                       EQU                          0x7dd7
+_str_0x7dd7                       DB                           39 'sound on and midi_note test by denjhang' 0
+
+; Data
+
+; Time
+
+; Define Bytes
+
+; Define Words
+
+; Define Images
+
+; Define Loader Image Chunks
+
+; Define Midis
+
+; Define Blits
+
+; Define Fonts
+
+; Define Sprites
+
+; Define Patterns
+
+; Lookup Tables
+
+; Lazy Constants
+
+; Code
+_entryPoint_                      LDI                          0x40
+                                  STW                          romUser
+                                  RomCheck                     
+                                  Initialise                                                ; INIT
+
+                                  LD                           0x21
+                                  ORI                          0x03
+                                  ST                           33                           ; poke &h21, peek(&h21) OR 3
+
+                                  SoundAllOff                                               ; sound off
+
+                                  ClearVertBlinds                                           ; cls
+
+                                  PrintString                  _str_0x7dd7
+                                  NewLine                                                   ; print "sound on and midi_note test by denjhang"
+
+                                  LDI                          0
+                                  STW                          _keystat                     ; keystat=0
+
+                                  LDI                          4
+                                  STW                          _oct                         ; oct=4
+
+                                  LDI                          0
+                                  STW                          _key_index                   ; key_index=0
+
+                                  LDI                          1
+                                  STW                          _demo                        ; demo=1
+
+_repeat_0x0000                    WaitVBlank                                                ; wait
+
+                                  CALLI                        _handleInput                 ; gosub handleInput
+
+                                  LDW                          _index
+                                  PrintAcInt16                 
+                                  NewLine                                                   ; print index
+
+                                  CALLI                        _eatSound                    ; call eatSound
+
+                                  CALLI                        _demo_key                    ; call demo_key
+
+                                  BRA                          _repeat_0x0000               ; &forever
+
+_eatSound                         PUSH                                                      ; proc eatSound
+
+                                  CALLI                        _fix                         ; call fix
+
+                                  LDWI                         32207
+                                  ADDW                         _index
+                                  PEEK                         
+                                  STW                          0xea
+                                  LDW                          _oct
+                                  SUBI                         5
+                                  STW                          0xec
+                                  LDI                          12
+                                  STW                          mathX
+                                  LDW                          0xec
+                                  STW                          mathY
+                                  CALLI                        multiply16bit
+                                  ADDW                         0xea
+                                  STW                          musicNote
+                                  GetMusicNote                 
+                                  ADDW                         _fix_num
+                                  STW                          _eatSound_n                  ; n = get("MUSIC_NOTE", peek(@enotes + index)+12*(oct-5))+fix_num
+
+                                  LDI                          2
+                                  ST                           sndChannel + 1
+                                  LDW                          _eatSound_n
+                                  STW                          sndFrequency
+                                  LDI                          63
+                                  STW                          sndVolume
+                                  LDI                          1
+                                  STW                          sndWaveType
+                                  SoundOnV                                                  ; sound on, 2, n, 63, 1
+
+                                  LDWI                         1000
+                                  ST                           giga_soundTimer              ; set SOUND_TIMER, 1000
+
+                                  LDW                          _key_index
+                                  STW                          _index                       ; index=key_index
+
+                                  Return                                                    ; endproc
+
+_fix                              PUSH                                                      ; proc fix
+
+                                  LDW                          _oct
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0001 0              ; if oct==0
+
+                                  CALLI                        _fix_oct0                    ; call fix_oct0
+
+_endif_0x0001                     LDW                          _oct
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0002 1              ; if oct==1
+
+                                  CALLI                        _fix_oct1                    ; call fix_oct1
+
+_endif_0x0002                     LDW                          _oct
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0003 2              ; if oct==2
+
+                                  CALLI                        _fix_oct2                    ; call fix_oct2
+
+_endif_0x0003                     LDW                          _oct
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0004 3              ; if oct==3
+
+                                  CALLI                        _fix_oct3                    ; call fix_oct3
+
+_endif_0x0004                     LDW                          _oct
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0005 4              ; if oct==4
+
+                                  CALLI                        _fix_oct4                    ; call fix_oct4
+
+_endif_0x0005                     LDW                          _oct
+                                  XORI                         5
+                                  CALLI                        _page_0x0300
+_page_0x0300                      CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0006 5              ; if oct==5
+
+                                  CALLI                        _fix_oct5                    ; call fix_oct5
+
+_endif_0x0006                     LDW                          _oct
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0007 6              ; if oct==6
+
+                                  CALLI                        _fix_oct6                    ; call fix_oct6
+
+_endif_0x0007                     LDW                          _oct
+                                  XORI                         7
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0008 7              ; if oct==7
+
+                                  CALLI                        _fix_oct6                    ; call fix_oct6
+
+_endif_0x0008                     Return                                                    ; endproc
+
+_fix_oct0                         PUSH                                                      ; proc fix_oct0
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0009 8              ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000a 9              ; if index == 0
+
+                                  LDI                          67
+                                  STW                          _fix_num                     ; fix_num=67
+
+_endif_0x000a                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000b 10             ; if index == 1
+
+                                  LDI                          74
+                                  STW                          _fix_num                     ; fix_num=74
+
+_endif_0x000b                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000c 11             ; if index == 2
+
+                                  LDI                          86
+                                  STW                          _fix_num                     ; fix_num=86
+
+_endif_0x000c                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000d 12             ; if index == 3
+
+                                  LDI                          86
+                                  STW                          _fix_num                     ; fix_num=86
+
+_endif_0x000d                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000e 13             ; if index == 4
+
+                                  LDI                          104
+                                  STW                          _fix_num                     ; fix_num=104
+
+_endif_0x000e                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x000f 14             ; if index == 5
+
+                                  LDI                          0
+                                  STW                          _fix_num                     ; fix_num=0
+
+_endif_0x000f                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0010 15             ; if index == 6
+
+                                  LDI                          3
+                                  STW                          _fix_num                     ; fix_num=3
+
+_endif_0x0009                     Return                                                    ; endproc
+
+_fix_oct1                         PUSH                                                      ; proc fix_oct1
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0011 16             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0012 17             ; if index == 0
+
+                                  LDI                          13
+                                  STW                          _fix_num                     ; fix_num=13
+
+_endif_0x0012                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0013 18             ; if index == 1
+
+                                  LDI                          34
+                                  STW                          _fix_num                     ; fix_num=34
+
+_endif_0x0013                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        _page_0x0400
+_page_0x0400                      CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0014 19             ; if index == 2
+
+                                  LDI                          44
+                                  STW                          _fix_num                     ; fix_num=44
+
+_endif_0x0014                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0015 20             ; if index == 3
+
+                                  LDI                          63
+                                  STW                          _fix_num                     ; fix_num=63
+
+_endif_0x0015                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0016 21             ; if index == 4
+
+                                  LDI                          79
+                                  STW                          _fix_num                     ; fix_num=79
+
+_endif_0x0016                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0017 22             ; if index == 5
+
+                                  LDI                          103
+                                  STW                          _fix_num                     ; fix_num=103
+
+_endif_0x0017                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0018 23             ; if index == 6
+
+                                  LDI                          5
+                                  STW                          _fix_num                     ; fix_num=5
+
+_endif_0x0011                     Return                                                    ; endproc
+
+_fix_oct2                         PUSH                                                      ; proc fix_oct2
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0019 24             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001a 25             ; if index == 0
+
+                                  LDI                          16
+                                  STW                          _fix_num                     ; fix_num=16
+
+_endif_0x001a                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001b 26             ; if index == 1
+
+                                  LDI                          58
+                                  STW                          _fix_num                     ; fix_num=58
+
+_endif_0x001b                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001c 27             ; if index == 2
+
+                                  LDI                          91
+                                  STW                          _fix_num                     ; fix_num=91
+
+_endif_0x001c                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001d 28             ; if index == 3
+
+                                  LDI                          115
+                                  STW                          _fix_num                     ; fix_num=115
+
+_endif_0x001d                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001e 29             ; if index == 4
+
+                                  LDI                          38
+                                  STW                          _fix_num                     ; fix_num=38
+
+_endif_0x001e                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x001f 30             ; if index == 5
+
+                                  LDI                          87
+                                  STW                          _fix_num                     ; fix_num=87
+
+_endif_0x001f                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0020 31             ; if index == 6
+
+                                  LDI                          2
+                                  STW                          _fix_num                     ; fix_num=2
+
+_endif_0x0019                     Return                                                    ; endproc
+
+_fix_oct3                         PUSH                                                      ; proc fix_oct3
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  CALLI                        _page_0x0500
+_page_0x0500                      JumpFalse                    _endif_0x0021 32             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0022 33             ; if index == 0
+
+                                  LDI                          43
+                                  STW                          _fix_num                     ; fix_num=43
+
+_endif_0x0022                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0023 34             ; if index == 1
+
+                                  LDI                          102
+                                  STW                          _fix_num                     ; fix_num=102
+
+_endif_0x0023                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0024 35             ; if index == 2
+
+                                  LDI                          56
+                                  STW                          _fix_num                     ; fix_num=56
+
+_endif_0x0024                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0025 36             ; if index == 3
+
+                                  LDI                          95
+                                  STW                          _fix_num                     ; fix_num=95
+
+_endif_0x0025                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0026 37             ; if index == 4
+
+                                  LDI                          54
+                                  STW                          _fix_num                     ; fix_num=54
+
+_endif_0x0026                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0027 38             ; if index == 5
+
+                                  LDI                          27
+                                  STW                          _fix_num                     ; fix_num=27
+
+_endif_0x0027                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0028 39             ; if index == 6
+
+                                  LDI                          20
+                                  STW                          _fix_num                     ; fix_num=20
+
+_endif_0x0021                     Return                                                    ; endproc
+
+_fix_oct4                         PUSH                                                      ; proc fix_oct4
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0029 40             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002a 41             ; if index == 0
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x002a                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002b 42             ; if index == 1
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x002b                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002c 43             ; if index == 2
+
+                                  LDI                          91
+                                  STW                          _fix_num                     ; fix_num=91
+
+_endif_0x002c                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002d 44             ; if index == 3
+
+                                  LDI                          62
+                                  STW                          _fix_num                     ; fix_num=62
+
+_endif_0x002d                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002e 45             ; if index == 4
+
+                                  LDI                          113
+                                  STW                          _fix_num                     ; fix_num=113
+
+_endif_0x002e                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x002f 46             ; if index == 5
+
+                                  LDI                          56
+                                  STW                          _fix_num                     ; fix_num=56
+
+_endif_0x002f                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        _page_0x0600
+_page_0x0600                      CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0030 47             ; if index == 6
+
+                                  LDI                          42
+                                  STW                          _fix_num                     ; fix_num=42
+
+_endif_0x0029                     Return                                                    ; endproc
+
+_fix_oct5                         PUSH                                                      ; proc fix_oct5
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0031 48             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0032 49             ; if index == 0
+
+                                  LDI                          23
+                                  STW                          _fix_num                     ; fix_num=23
+
+_endif_0x0032                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0033 50             ; if index == 1
+
+                                  LDI                          51
+                                  STW                          _fix_num                     ; fix_num=51
+
+_endif_0x0033                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0034 51             ; if index == 2
+
+                                  LDI                          91
+                                  STW                          _fix_num                     ; fix_num=91
+
+_endif_0x0034                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0035 52             ; if index == 3
+
+                                  LDI                          120
+                                  STW                          _fix_num                     ; fix_num=120
+
+_endif_0x0035                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0036 53             ; if index == 4
+
+                                  LDI                          103
+                                  STW                          _fix_num                     ; fix_num=103
+
+_endif_0x0036                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0037 54             ; if index == 5
+
+                                  LDI                          136
+                                  STW                          _fix_num                     ; fix_num=136
+
+_endif_0x0037                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0038 55             ; if index == 6
+
+                                  LDI                          65
+                                  STW                          _fix_num                     ; fix_num=65
+
+_endif_0x0031                     Return                                                    ; endproc
+
+_fix_oct6                         PUSH                                                      ; proc fix_oct6
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0039 56             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x003a 57             ; if index == 0
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x003a                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x003b 58             ; if index == 1
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x003b                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x003c 59             ; if index == 2
+
+                                  LDI                          91
+                                  STW                          _fix_num                     ; fix_num=91
+
+_endif_0x003c                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x003d 60             ; if index == 3
+
+                                  LDI                          62
+                                  STW                          _fix_num                     ; fix_num=62
+
+_endif_0x003d                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  CALLI                        _page_0x08a0
+_page_0x08a0                      JumpFalse                    _endif_0x003e 61             ; if index == 4
+
+                                  LDI                          113
+                                  STW                          _fix_num                     ; fix_num=113
+
+_endif_0x003e                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x003f 62             ; if index == 5
+
+                                  LDI                          56
+                                  STW                          _fix_num                     ; fix_num=56
+
+_endif_0x003f                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0040 63             ; if index == 6
+
+                                  LDI                          42
+                                  STW                          _fix_num                     ; fix_num=42
+
+_endif_0x0039                     Return                                                    ; endproc
+
+_fix_oct7                         PUSH                                                      ; proc fix_oct7
+
+                                  LDW                          _keystat
+                                  CALLI                        convertEqOp
+                                  STW                          0xe8
+                                  LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  ANDW                         0xe8
+                                  JumpFalse                    _endif_0x0041 64             ; if (keystat==0 AND demo ==1)
+
+                                  LDW                          _index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0042 65             ; if index == 0
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x0042                     LDW                          _index
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  CALLI                        _page_0x09a0
+_page_0x09a0                      JumpFalse                    _endif_0x0043 66             ; if index == 1
+
+                                  LDI                          88
+                                  STW                          _fix_num                     ; fix_num=88
+
+_endif_0x0043                     LDW                          _index
+                                  XORI                         2
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0044 67             ; if index == 2
+
+                                  LDI                          91
+                                  STW                          _fix_num                     ; fix_num=91
+
+_endif_0x0044                     LDW                          _index
+                                  XORI                         3
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0045 68             ; if index == 3
+
+                                  LDI                          62
+                                  STW                          _fix_num                     ; fix_num=62
+
+_endif_0x0045                     LDW                          _index
+                                  XORI                         4
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0046 69             ; if index == 4
+
+                                  LDI                          113
+                                  STW                          _fix_num                     ; fix_num=113
+
+_endif_0x0046                     LDW                          _index
+                                  XORI                         5
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0047 70             ; if index == 5
+
+                                  LDI                          56
+                                  STW                          _fix_num                     ; fix_num=56
+
+_endif_0x0047                     LDW                          _index
+                                  XORI                         6
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0048 71             ; if index == 6
+
+                                  LDI                          42
+                                  CALLI                        _page_0x0aa0
+_page_0x0aa0                      STW                          _fix_num                     ; fix_num=42
+
+_endif_0x0041                     Return                                                    ; endproc
+
+_handleInput                      PUSH                         
+                                  LD                           giga_buttonState
+                                  XORI                         0xff
+                                  STW                          _button                      ; button = get("BUTTON_STATE") XOR 255
+
+                                  LDWI                         0x7daf
+                                  STW                          memDstAddr
+                                  LDW                          _fix_num
+                                  DOKE                         memDstAddr
+                                  INC                          memDstAddr
+                                  INC                          memDstAddr
+                                  LDW                          _oct
+                                  DOKE                         memDstAddr
+                                  INC                          memDstAddr
+                                  INC                          memDstAddr
+                                  LDW                          _demo
+                                  DOKE                         memDstAddr
+                                  LSLW                         ; dummy                      ; gprintf "fix_num=%d,oct=%d,demo=%d"	,fix_num,oct,demo
+
+                                  LDW                          _button
+                                  ANDI                         0x08
+                                  JumpFalse                    _endif_0x0049 72             ; if (button AND &h08)
+
+                                  LDI                          1
+                                  STW                          _keystat                     ; keystat=1
+
+                                  LDW                          _fix_num
+                                  ADDI                         1
+                                  STW                          _fix_num                     ; fix_num=fix_num+1
+
+_endif_0x0049                     LDW                          _button
+                                  ANDI                         0x04
+                                  JumpFalse                    _endif_0x004a 73             ; if (button AND &h04)
+
+                                  LDI                          1
+                                  STW                          _keystat                     ; keystat=1
+
+                                  LDW                          _fix_num
+                                  SUBI                         1
+                                  STW                          _fix_num                     ; fix_num=fix_num-1
+
+_endif_0x004a                     LDW                          _button
+                                  ANDI                         0x02
+                                  JumpFalse                    _endif_0x004b 74             ; if (button AND &h02)
+
+                                  LDW                          _key_index
+                                  CALLI                        convertGeOp
+                                  CALLI                        _page_0x0ba0
+_page_0x0ba0                      JumpFalse                    _endif_0x004c 75             ; if key_index>=0
+
+                                  LDW                          _key_index
+                                  SUBI                         1
+                                  STW                          _key_index                   ; key_index=key_index-1
+
+                                  LDWI                         -1
+                                  XORW                         _key_index
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x004d 76             ; if key_index==-1
+
+                                  LDI                          6
+                                  STW                          _key_index                   ; key_index=6
+
+                                  LDW                          _oct
+                                  CALLI                        convertGtOp
+                                  JumpFalse                    _if_0x004e 77
+                                  LDW                          _oct
+                                  SUBI                         1
+                                  STW                          _oct                         ; if oct>0 then oct=oct-1
+
+_endif_0x004c                     LDI                          0
+                                  STW                          _keystat                     ; keystat=0
+
+_endif_0x004b                     LDW                          _button
+                                  ANDI                         0x01
+                                  JumpFalse                    _endif_0x004f 78             ; if (button AND &h01)
+
+                                  LDW                          _key_index
+                                  SUBI                         6
+                                  CALLI                        convertLeOp
+                                  JumpFalse                    _endif_0x0050 79             ; if key_index<=6
+
+                                  LDW                          _key_index
+                                  ADDI                         1
+                                  STW                          _key_index                   ; key_index=key_index+1
+
+                                  LDW                          _key_index
+                                  XORI                         7
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0051 80             ; if key_index==7
+
+                                  CALLI                        _page_0x0ca0
+_page_0x0ca0                      LDI                          0
+                                  STW                          _key_index                   ; key_index=0
+
+                                  LDW                          _oct
+                                  SUBI                         7
+                                  CALLI                        convertLtOp
+                                  JumpFalse                    _if_0x0052 81
+                                  LDW                          _oct
+                                  ADDI                         1
+                                  STW                          _oct                         ; if oct<7 then oct=oct+1
+
+_endif_0x0050                     LDI                          0
+                                  STW                          _keystat                     ; keystat=0
+
+_endif_0x004f                     LDW                          _button
+                                  ANDI                         0x00
+                                  JumpFalse                    _endif_0x0053 82             ; if (button AND &h00)
+
+_endif_0x0053                     LDW                          _button
+                                  ANDI                         0x80
+                                  JumpFalse                    _endif_0x0054 83             ; if (button AND &h80)
+
+                                  LDW                          _oct
+                                  SUBI                         7
+                                  CALLI                        convertLtOp
+                                  JumpFalse                    _if_0x0055 84
+                                  LDW                          _oct
+                                  ADDI                         1
+                                  STW                          _oct                         ; if oct<7 then oct=oct+1
+
+_if_0x0055                        LDI                          0
+                                  STW                          _keystat                     ; keystat=0
+
+_endif_0x0054                     LDW                          _button
+                                  ANDI                         0x40
+                                  JumpFalse                    _endif_0x0056 85             ; if (button AND &h40)
+
+                                  LDW                          _oct
+                                  CALLI                        convertGtOp
+                                  JumpFalse                    _if_0x0057 86
+                                  LDW                          _oct
+                                  CALLI                        _page_0x0da0
+_page_0x0da0                      SUBI                         1
+                                  STW                          _oct                         ; if oct>0 then oct=oct-1
+
+_if_0x0057                        LDI                          0
+                                  STW                          _keystat                     ; keystat=0
+
+_endif_0x0056                     Return                                                    ; return
+
+_demo_key                         PUSH                                                      ; proc demo_key
+
+                                  LDW                          _button
+                                  ANDI                         0x10
+                                  JumpFalse                    _endif_0x0058 87             ; if (button AND &h10)
+
+                                  LDW                          _demo
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x0059 88             ; if demo==0
+
+                                  LDI                          1
+                                  STW                          _demo                        ; demo = 1
+
+                                  Return                                                    ; return
+
+_endif_0x0059                     LDW                          _demo
+                                  XORI                         1
+                                  CALLI                        convertEqOp
+                                  JumpFalse                    _endif_0x005a 89             ; if demo==1
+
+                                  LDI                          0
+                                  STW                          _demo                        ; demo = 0
+
+                                  Return                                                    ; return
+
+_endif_0x0058                     Return                                                    ; endproc
+
+                                  HALT                                                      ; END
+
+
+
+;*************************************************************************************************************
+;*************************************************************************************************************
+;* Internal runtime, DO NOT MODIFY PAST THIS POINT, modifications must be made in the original include files *
+;*************************************************************************************************************
+;*************************************************************************************************************
+
+romCheck                          EQU     0x78a8
+convertEqOp                       EQU     0x77a0
+convertLeOp                       EQU     0x76b5
+convertGeOp                       EQU     0x76ac
+convertLtOp                       EQU     0x76a3
+convertGtOp                       EQU     0x75f6
+multiply16bit                     EQU     0x78d1
+waitVBlank                        EQU     0x7ba3
+resetVideoFlags                   EQU     0x7ca1
+initClearFuncs                    EQU     0x7da0
+clearVertBlinds                   EQU     0x79cd
+clearCursorRow                    EQU     0x79a1
+musicGetNote                      EQU     0x77a9
+soundAllOff                       EQU     0x76e9
+soundOnV                          EQU     0x77d7
+printInit                         EQU     0x76d3
+printText                         EQU     0x76be
+printDigit                        EQU     0x7aa6
+printInt16                        EQU     0x7ac6
+printChar                         EQU     0x7bb3
+printClip                         EQU     0x77bf
+newLineScroll                     EQU     0x7cac
+
+
+
+realTimeAddr        EQU     register0
+realTimeProc0       EQU     register1
+realTimeProc1       EQU     register2
+realTimeProc2       EQU     register3
+numericLabel        EQU     register0
+defaultLabel        EQU     register1
+lutLabs             EQU     register2
+lutAddrs            EQU     register3
+lutIndex            EQU     register8
+romUser             EQU     register0                       
+romType             EQU     register1                       
+romReadAddr         EQU     register0
+romErrAddr          EQU     0x7E                            
+vramErrAddr         EQU     0x0101
+
+romErrAddr          DW      vramErrAddr
+
+
+
+romCheck            LD      giga_romType
+                    ANDI    0xFC
+                    STW     romType
+                    SUBW    romUser
+                    BEQ     romC_return                     
+                    LDW     romUser
+                    SUBI    0x80                            
+                    BNE     romC_check
+                    LDW     romType
+                    SUBW    romUser
+                    BEQ     romC_return                     
+                    BRA     romC_fail
+                    
+romC_check          LDW     romType                         
+                    SUBW    romUser
+                    BGT     romC_return                     
+                     
+romC_fail           LD      giga_rand0
+                    POKE    romErrAddr                      
+                    BRA     romC_fail
+
+romC_return         RET
+
+
+                    
+convertEqOp         BEQ     convertEq_1
+                    LDI     0
+                    RET
+convertEq_1         LDI     1
+                    RET
+
+
+                    
+convertLeOp         BLE     convertLe_1
+                    LDI     0
+                    RET
+convertLe_1         LDI     1
+                    RET
+
+
+                    
+convertGeOp         BGE     convertGe_1
+                    LDI     0
+                    RET
+convertGe_1         LDI     1
+                    RET
+
+
+                    
+convertLtOp         BLT     convertLt_1
+                    LDI     0
+                    RET
+convertLt_1         LDI     1
+                    RET
+
+
+                    
+convertGtOp         BGT     convertGt_1
+                    LDI     0
+                    RET
+convertGt_1         LDI     1
+                    RET
+
+
+
+mathX               EQU     register8
+mathY               EQU     register9
+mathSum             EQU     register12
+mathRem             EQU     register12
+mathMask            EQU     register13
+mathSign            EQU     register14
+mathQuot            EQU     register15
+mathShift           EQU     register15
+mathBase            EQU     register10
+mathPow             EQU     register11
+mathResult          EQU     register14
+
+
+                    
+multiply16bit       LDI     0
+                    STW     mathSum
+                    LDW     mathX
+                    BEQ     multiply16_exit     
+                    LDWI    SYS_LSRW1_48
+                    STW     giga_sysFn
+                    LDW     mathY
+                    
+multiply16_loop     BEQ     multiply16_exit     
+                    ANDI    1
+                    BEQ     multiply16_skip
+                    LDW     mathSum
+                    ADDW    mathX
+                    STW     mathSum             
+                    
+multiply16_skip     LDW     mathX
+                    LSLW
+                    STW     mathX               
+                    LDW     mathY
+                    SYS     48
+                    STW     mathY               
+                    BRA     multiply16_loop
+
+multiply16_exit     LDW     mathSum
+                    RET
+
+
+
+graphicsMode        EQU     register0
+waitVBlankNum       EQU     register0
+
+drawHLine_x1        EQU     register0
+drawHLine_y1        EQU     register1
+drawHLine_x2        EQU     register2
+
+drawVLine_x1        EQU     register0
+drawVLine_y1        EQU     register1
+drawVLine_y2        EQU     register2
+drawVLine_y8        EQU     register3
+
+drawLine_x1         EQU     register0
+drawLine_y1         EQU     register1
+drawLine_x2         EQU     register2
+drawLine_y2         EQU     register3
+drawLine_xy1        EQU     register0
+drawLine_xy2        EQU     register1
+drawLine_dxy1       EQU     register2
+drawLine_dxy2       EQU     register3
+drawLine_dx1        EQU     register8
+drawLine_dy1        EQU     register9
+drawLine_dx2        EQU     register10
+drawLine_dy2        EQU     register11
+drawLine_sx         EQU     register12
+drawLine_sy         EQU     register13
+drawLine_h          EQU     register14
+drawLine_num        EQU     register15
+drawLine_count      EQU     register14
+drawLine_tmp        EQU     register15
+drawLine_dx         EQU     register2
+drawLine_dy         EQU     register3
+drawLine_u          EQU     register8
+drawLine_v          EQU     register9
+drawLine_addr       EQU     register10
+drawLine_ddx        EQU     register11
+drawLine_cnt        EQU     register12
+drawLine_swp        EQU     register13
+drawLine_xy         EQU     register7
+
+readPixel_xy        EQU     register0
+drawPixel_xy        EQU     register0
+
+drawCircle_cycx     EQU     register0
+drawCircle_r        EQU     register2
+drawCircle_a        EQU     register3
+drawCircle_d        EQU     register8
+drawCircle_x        EQU     register9
+drawCircle_y        EQU     register10
+drawCircle_ch0      EQU     register11
+drawCircle_ch1      EQU     register12
+drawCircle_ch2      EQU     register13
+drawCircle_ch3      EQU     register14
+
+drawCircleF_x1      EQU     register0
+drawCircleF_y1      EQU     register1
+drawCircleF_x2      EQU     register2
+drawCircleF_cx      EQU     register15
+drawCircleF_cy      EQU     register10
+drawCircleF_r       EQU     register11
+drawCircleF_v       EQU     register8
+drawCircleF_w       EQU     register9
+
+drawRect_x1         EQU     register7
+drawRect_y1         EQU     register10
+drawRect_x2         EQU     register11
+drawRect_y2         EQU     register16
+
+drawRectF_x1        EQU     register0
+drawRectF_y1        EQU     register1
+drawRectF_x2        EQU     register2
+drawRectF_y2        EQU     register8
+
+drawPoly_addr       EQU     register7
+drawPoly_mode       EQU     register14
+
+    
+%if VBLANK_INTERRUPT
+waitVBlank          LD      timerJiff + 1                       
+%else
+waitVBlank          LD      giga_frameCount
+%endif
+                    XORW    frameCountPrev
+                    BEQ     waitVBlank
+%if VBLANK_INTERRUPT
+                    LD      timerJiff + 1                       
+%else
+                    LD      giga_frameCount
+%endif
+                    STW     frameCountPrev
+                    RET
+
+
+
+xreset              EQU     register0
+xcount              EQU     register1
+ycount              EQU     register2
+treset              EQU     register3
+breset              EQU     register8
+top                 EQU     register9
+bot                 EQU     register10
+vramAddr            EQU     register11
+evenAddr            EQU     register12
+clsAddress          EQU     register13
+clsLines            EQU     register14
+varAddress          EQU     register13
+clrAddress          EQU     register13
+clrLines            EQU     register14
+clrWidth            EQU     register15
+ramAddr0            EQU     register14
+ramAddr1            EQU     register15
+
+
+resetVideoFlags     LDI     giga_CursorX                    
+                    STW     cursorXY
+                    LD      miscFlags
+                    ANDI    MISC_ON_BOTTOM_ROW_MSK
+                    ST      miscFlags                       
+                    RET
+
+
+
+initClearFuncs      PUSH
+                    CALLI   resetVideoFlags
+                    LDWI    SYS_SetMemory_v2_54             
+                    STW     giga_sysFn
+                    LD      fgbgColour
+                    ST      giga_sysArg1                    
+                    POP
+                    RET
+
+
+                    
+clearVertBlinds     PUSH
+                    CALLI   initClearFuncs
+                    LDI     giga_vram >> 8
+                    STW     top  
+                    
+clearVB_loopy       LDI     giga_xres
+                    ST      giga_sysArg0
+                    LDI     0
+                    ST      giga_sysArg2                    
+                    LD      top
+                    ST      giga_sysArg3                    
+                    SYS     54                              
+    
+                    LDI     giga_xres
+                    ST      giga_sysArg0
+                    LDI     0
+                    ST      giga_sysArg2                    
+                    LDWI    giga_yres - 1 + 16
+                    SUBW    top
+                    ST      giga_sysArg3                    
+                    SYS     54                              
+                    INC     top                             
+                    LD      top
+                    SUBI    giga_yres / 2 + 8
+                    BLT     clearVB_loopy
+                    POP
+                    RET
+
+
+midiId              EQU     register0
+audioAddr           EQU     register1
+waveType            EQU     register2
+midiNote            EQU     register4                       
+midiCommand         EQU     register5
+midiPtr             EQU     register6
+sndChannel          EQU     register8
+sndFrequency        EQU     register9
+sndVolume           EQU     register10
+sndWaveType         EQU     register11
+musicStream         EQU     register8
+musicNote           EQU     register9
+musicCommand        EQU     register10
+musicPtr            EQU     register11
+
+
+musicGetNote        LDWI    giga_notesTable
+                    ADDW    musicNote
+                    ADDW    musicNote
+                    STW     musicPtr
+                    LUP     0x00                            
+                    ST      musicNote
+                    LDW     musicPtr
+                    LUP     0x01                            
+                    ST      musicNote + 1
+                    LDW     musicNote                       
+                    RET
+
+
+soundAllOff         LDWI    0x01FC
+                    STW     sndChannel
+                    LDI     0
+                    DOKE    sndChannel                      
+                    INC     sndChannel + 1      
+                    DOKE    sndChannel                      
+                    INC     sndChannel + 1      
+                    DOKE    sndChannel                      
+                    INC     sndChannel + 1      
+                    DOKE    sndChannel                      
+                    RET
+
+
+soundOnV            LDWI    SYS_LSRW1_48
+                    STW     giga_sysFn
+                    LDI     0xFC
+                    ST      sndChannel
+                    LD      sndFrequency
+                    SYS     48
+                    ST      sndFrequency                    
+                    LDW     sndFrequency                    
+                    DOKE    sndChannel                      
+                    LDI     0xFA
+                    ST      sndChannel                      
+                    LDI     63
+                    SUBW    sndVolume
+                    ADDI    64
+                    POKE    sndChannel                      
+                    INC     sndChannel
+                    LD      sndWaveType
+                    ANDI    3
+                    POKE    sndChannel                      
+                    RET
+
+
+
+
+textStr             EQU     register0
+textNum             EQU     register0
+textBak             EQU     register0
+textHex             EQU     register1
+textSpc             EQU     register1
+textLen             EQU     register2
+textOfs             EQU     register3
+textChr             EQU     register8
+textFont            EQU     register9
+textSlice           EQU     register10
+scanLine            EQU     register11
+digitMult           EQU     register12
+digitIndex          EQU     register13
+clearLoop           EQU     register14
+    
+    
+printInit           LDWI    SYS_VDrawBits_134
+                    STW     giga_sysFn
+                    LDW     fgbgColour
+                    STW     giga_sysArg0
+                    LD      cursorXY + 1                        
+                    LSLW
+                    INC     giga_vAC + 1
+                    PEEK
+                    ST      giga_sysArg4 + 1
+                    LD      cursorXY
+                    ST      giga_sysArg4                        
+                    RET
+
+
+
+                    
+printText           PUSH
+                    STW     textStr
+                    CALLI   printInit
+
+                    
+printT_char         INC     textStr                             
+                    LDW     textStr             
+                    PEEK
+                    BEQ     printT_exit                         
+                    CALLI   printChar
+                    BRA     printT_char
+                    
+printT_exit         POP
+                    RET
+
+
+
+                    
+printDigit          PUSH
+                    STW     digitMult
+                    LDW     textNum
+printD_index        SUBW    digitMult
+                    BLT     printD_cont
+                    STW     textNum
+                    INC     digitIndex
+                    BRA     printD_index
+    
+printD_cont         LD      digitIndex
+                    BEQ     printD_exit
+                    ORI     0x30
+                    CALLI   printChar
+                    LDI     0x30
+                    ST      digitIndex
+printD_exit         POP
+                    RET
+
+
+                    
+printInt16          PUSH
+                    STW     textNum
+                    CALLI   printInit
+                    LDI     0
+                    ST      digitIndex
+                    LDW     textNum
+                    BGE     printI16_pos
+                    LDI     0x2D
+                    CALLI   printChar
+                    LDI     0
+                    SUBW    textNum
+                    STW     textNum    
+    
+printI16_pos        LDWI    10000
+                    CALLI   printDigit
+                    LDWI    1000
+                    CALLI   printDigit
+                    LDI     100
+                    CALLI   printDigit
+                    LDI     10
+                    CALLI   printDigit
+                    LD      textNum
+                    ORI     0x30
+                    CALLI   printChar
+                    POP
+                    RET
+
+
+
+                    
+printChar           SUBI    130                                 
+                    BGT     printC_exit
+                    ADDI    130
+                    SUBI    82
+                    BGE     printC_text82
+                    ADDI    50
+                    BLT     printC_exit                         
+                    STW     textChr                             
+                    LDWI    giga_text32                         
+                    BRA     printC_font
+                    
+printC_text82       STW     textChr                             
+                    LDWI    giga_text82                         
+                    
+printC_font         STW     textFont
+                    LD      textChr
+                    LSLW    
+                    LSLW    
+                    ADDW    textChr
+                    ADDW    textFont
+                    STW     textFont                            
+                    LDI     0x05
+
+printC_slice        ST      textSlice
+                    LDW     textFont                            
+                    LUP     0x00                                
+                    ST      giga_sysArg2
+                    SYS     134                                 
+                    INC     textFont                            
+                    INC     giga_sysArg4                        
+                    LD      textSlice
+                    SUBI    1
+                    BNE     printC_slice
+                    
+                    ST      giga_sysArg2                        
+                    SYS     134                                 
+                    INC     giga_sysArg4                        
+                    
+                    PUSH
+                    CALLI   printClip
+                    POP
+                    
+printC_exit         RET
+
+
+printClip           LD      cursorXY
+                    ADDI    giga_xfont
+                    ST      cursorXY
+                    SUBI    giga_xres - giga_xfont              
+                    BLE     printCl_exit
+                    LD      miscFlags
+                    ANDI    MISC_DISABLE_CLIP_BIT
+                    BNE     printCl_exit                        
+                    PUSH
+                    CALLI   newLineScroll                       
+                    POP
+                    
+printCl_exit        RET
+
+
+
+                    
+clearCursorRow      PUSH
+                    LDWI    SYS_SetMemory_v2_54
+                    STW     giga_sysFn                          
+                    LD      fgbgColour
+                    ST      giga_sysArg1                        
+                    LDWI    giga_videoTable
+                    PEEK
+                    ST      giga_sysArg3                        
+                    LDI     giga_yfont
+
+clearCR_loopy       ST      clearLoop                    
+                    LDI     giga_xres
+                    ST      giga_sysArg0
+                    LDI     0
+                    ST      giga_sysArg2                        
+                    SYS     54                                  
+                    INC     giga_sysArg3                        
+                    LD      clearLoop
+                    SUBI    1
+                    BNE     clearCR_loopy
+                    CALLI   printInit                           
+                    POP
+                    RET
+
+
+                    
+newLineScroll       LDI     giga_CursorX                        
+                    ST      cursorXY
+                    ST      giga_sysArg4
+                    LD      miscFlags
+                    ANDI    MISC_ENABLE_SCROLL_BIT
+                    BNE     newLS_cont0                         
+                    RET
+                    
+newLS_cont0         PUSH
+                    LD      miscFlags
+                    ANDI    MISC_ON_BOTTOM_ROW_BIT
+                    BNE     newLS_cont1                         
+                    LD      cursorXY + 1
+                    ADDI    giga_yfont
+                    ST      cursorXY + 1
+                    SUBI    giga_yres
+                    BLT     newLS_exit
+                    LDI     giga_yres - giga_yfont
+                    ST      cursorXY + 1
+                    
+newLS_cont1         CALLI   clearCursorRow
+                    LDWI    giga_videoTable
+                    STW     scanLine
+    
+newLS_scroll        LDW     scanLine
+                    PEEK
+                    ADDI    giga_yfont
+                    SUBI    0x7F
+                    BLE     newLS_adjust
+                    ADDI    0x88
+                    
+newLS_adjust        ADDI    0x7F
+                    POKE    scanLine
+                    INC     scanLine                            
+                    INC     scanLine
+                    LD      scanLine
+                    SUBI    0xF0                                
+                    BLT     newLS_scroll
+                    LD      miscFlags
+                    ORI     MISC_ON_BOTTOM_ROW_BIT
+                    ST      miscFlags                           
+                    
+newLS_exit          CALLI   printInit                           
+                    POP
+                    RET
+
