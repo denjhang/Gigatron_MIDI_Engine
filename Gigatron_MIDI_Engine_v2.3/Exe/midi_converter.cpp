@@ -1204,7 +1204,7 @@ int main(int argc, char* argv[]) {
     output_file << R"(_runtimePath_ "../runtime"
 _runtimeStart_ &hFFFF
 _codeRomType_ ROMv5a
-_enable8BitAudioEmu_ ON 'experimental
+'_enable8BitAudioEmu_ ON 'experimental
 
 '本程序实现了基于查找表和sound on的声音合成引擎，尤其对查找表音高进行了精确调音。
 '因此Gigatron目前是：
